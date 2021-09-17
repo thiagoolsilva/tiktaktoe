@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+export enum Player {
+    firstPlayer = 2,
+    secondPlayer = 1,
+    notPlayed = 0
+}
 
-export * from "./exception/position-already-used.exception";
-export * from "./type/game-type";
+export const MatrixSquareLength = 3;

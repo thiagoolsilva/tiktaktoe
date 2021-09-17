@@ -14,13 +14,7 @@
 * limitations under the License.
 */
 
-export const MatrixSquareLength = 3;
-
-export enum Player {
-    firstPlayer = 2,
-    secondPlayer = 1,
-    notPlayed = 0
-}
+import { Player } from "../../cross-cutting/index";
 
 export const FirstPlayerWinnerScore = 6;
 export const SecondPlayerWinnerScore = 3;

@@ -14,17 +14,17 @@
 * limitations under the License.
 */
 
-import { MatrixSquareLength, Player } from "../../../type/game-types";
+import { GameRepository } from "../../../../data/index";
 import { StartGameUseCaseInterface } from "../../start-game-uc.interface";
 
 export class StartGameUC implements StartGameUseCaseInterface {
 
+    public constructor(
+        private gameRepository: GameRepository
+    ) { }
+
     public execute(): number[][] {
-        return [
-            Array(MatrixSquareLength).fill(Player.notPlayed),
-            Array(MatrixSquareLength).fill(Player.notPlayed),
-            Array(MatrixSquareLength).fill(Player.notPlayed)
-        ];
+        return this.gameRepository.initGame();
     }
 
 }

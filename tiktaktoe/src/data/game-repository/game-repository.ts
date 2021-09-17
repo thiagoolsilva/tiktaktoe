@@ -14,17 +14,25 @@
 * limitations under the License.
 */
 
-import { GameRepository } from "../../../../data/index";
-import { ResetGameInterface } from "../../reset-game-uc.interface";
+import {
+    GameRepositoryInterface,
+    LocalSourceGameRepositoryInterface
+} from "./game-repository.interface";
 
-export class ResetGameUseCase implements ResetGameInterface {
+export class GameRepository implements GameRepositoryInterface {
 
     public constructor(
-        private gameRepository: GameRepository
+        private readonly localSource: LocalSourceGameRepositoryInterface
     ) { }
 
-    public execute(): number[][] {
-        return this.gameRepository.initGame();
+    initGame(): number[][] {
+        return this.initGame();
     }
 
+    public gameStatus(): number[][] {
+        return this.localSource.gameStatus();
+    }
+    public insertPlayRound(xPos: number, yPos: number, value: number): number[][] {
+        return this.localSource.insertPlayRound(xPos, yPos, value);
+    }
 }

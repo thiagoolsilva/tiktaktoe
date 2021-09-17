@@ -26,9 +26,9 @@ export class PlayRoundUC implements PlayRoundUseCaseInterface<number[][], TikTak
     public execute(data: number[][], play: TikTakToePlay): number[][] {
         this.dependencies.playRoundValidation.checkIfPositionIsAlreadyFilledOrThrow(data, play);
 
-        data[play.xPosition][play.yPosition] = play.player;
+        this.dependencies.gameRepository.insertPlayRound(play.xPosition, play.yPosition, play.player);
 
-        return data;
+        return this.dependencies.gameRepository.gameStatus();
     }
 
 }

@@ -14,14 +14,6 @@
 * limitations under the License.
 */
 
-import { GameRepository } from "../../../../data/index";
-import { TikTakToePlay, TikTakToeWinner } from "../../../type/game-types";
-import { BaseUseCaseInterface } from "../../base-uc.interface";
-import { PlayRoundValidationInterface } from "./validation/play-round-validation.interface";
-
- 
-export interface PlayRoundDependencyUC {
-    readonly playRoundValidation: PlayRoundValidationInterface<TikTakToePlay>;
-    readonly matrixUC: BaseUseCaseInterface<TikTakToeWinner>;
-    readonly gameRepository: GameRepository;
-}
+export * from "./game-repository/game-repository.interface";
+export * from "./game-repository/game-repository";
+export * from "./game-repository/local-source-game-repository";

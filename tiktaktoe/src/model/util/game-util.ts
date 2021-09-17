@@ -14,8 +14,9 @@
 * limitations under the License.
 */
 
+import { Player } from "../../cross-cutting/index";
 import {
-    TikTakToeWinner, FirstPlayerWinnerScore, SecondPlayerWinnerScore, Player
+    TikTakToeWinner, FirstPlayerWinnerScore, SecondPlayerWinnerScore, 
 } from "../type/game-types";
 
 export class GameUtil {
