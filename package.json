@@ -1,0 +1,22 @@
+{
+  "name": "tiktaktoe",
+  "version": "1.0.0",
+  "description": "Tik Tak Toe Game",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -p tsconfig.json",
+    "watch": "./node_modules/.bin/tsc -p tsconfig.json -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoolsilva/tiktaktoe.git"
+  },
+  "author": "Thiago Lopes da Silva <thiagoolsilva@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/thiagoolsilva/tiktaktoe/issues"
+  },
+  "homepage": "https://github.com/thiagoolsilva/tiktaktoe#readme",
+  "devDependencies": {
+    "typescript": "4.4.3"
+  }
+}
