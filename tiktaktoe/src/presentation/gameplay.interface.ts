@@ -17,6 +17,7 @@
 import { TikTakToePlay, TikTakToeWinner } from "../model/index";
 
 export interface GameplayInterface {
+    getWinner(): TikTakToeWinner;
     startGame(): number[][];
     resetGame(): number[][];
     gameStatus(): number[][];

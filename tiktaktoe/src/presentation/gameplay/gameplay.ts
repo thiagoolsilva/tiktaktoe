@@ -27,9 +27,12 @@ export class GamePlay implements GameplayInterface {
     constructor(
         public dependencies: PresentationDependencies
     ) { }
-
     public startGame(): number[][] {
         return this.dependencies.startGameUC.execute();
+    }
+    public getWinner(): TikTakToeWinner {
+        const gameStatus = this.dependencies.getGameStatusUC.execute();
+        return this.dependencies.checkWinnerUC.execute(gameStatus);
     }
     public resetGame(): number[][] {
         return this.dependencies.resetGameUC.execute();
@@ -37,7 +40,6 @@ export class GamePlay implements GameplayInterface {
     public gameStatus(): number[][] {
         return this.dependencies.getGameStatusUC.execute();
     }
-
     public playRound(play: TikTakToePlay): TikTakToeWinner {
         const playRound = this.dependencies.playRoundUC.execute(play);
 

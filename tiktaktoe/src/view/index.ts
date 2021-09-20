@@ -23,20 +23,21 @@ export class Index {
         const handler = new PresentationFactory().createGame();
         console.log(handler.startGame());
         handler.playRound({
-            player: Player.firstPlayer, 
+            player: Player.firstPlayer,
             xPosition: 0,
             yPosition: 0
         });
         handler.playRound({
-            player: Player.firstPlayer, 
+            player: Player.firstPlayer,
             xPosition: 0,
             yPosition: 1
         });
         handler.playRound({
-            player: Player.firstPlayer, 
+            player: Player.firstPlayer,
             xPosition: 0,
             yPosition: 2
         });
+        console.log("winner", handler.getWinner());
         console.log(handler.gameStatus());
         console.log(handler.resetGame());
     }

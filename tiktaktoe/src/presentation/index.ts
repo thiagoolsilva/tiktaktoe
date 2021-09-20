@@ -14,7 +14,4 @@
 * limitations under the License.
 */
 
-// This line should be the first to dependency injection works properly
-// import "reflect-metadata";
-
 export * from "./gameplay/gameplay.factory";

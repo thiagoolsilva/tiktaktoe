@@ -6,7 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json",
     "watch": "./node_modules/.bin/tsc -p tsconfig.json -w",
-    "remove-dist": "./node_modules/.bin/rimraf ./dist"
+    "remove-dist": "./node_modules/.bin/rimraf ./dist",
+    "test": "./node_modules/.bin/jest "
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,11 @@
   },
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe#readme",
   "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "ts-jest": "27.0.5",
+    "jest": "27.2.0",
     "rimraf": "3.0.2",
+    "ts-node": "^10.2.1",
     "typescript": "4.4.3"
   },
   "dependencies": {
