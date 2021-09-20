@@ -14,12 +14,6 @@
 * limitations under the License.
 */
 
-import { Logging } from "../../../logging/log.interface";
-import { TikTakToeWinner } from "../../../type/game-types";
-import { BaseUseCaseInterface } from "../../base-uc.interface";
-
- 
-export interface CheckWinnerDependency {
-    readonly checkMatrixUC: BaseUseCaseInterface<TikTakToeWinner>[];
-    readonly logWrapper: Logging;
+export interface GetGameInterface {
+    execute(): number[][];
 }

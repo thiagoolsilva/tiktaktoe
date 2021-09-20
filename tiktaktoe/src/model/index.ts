@@ -23,3 +23,4 @@ export * from "./use-cases/base-uc.interface";
 export * from "./use-cases/reset-game-uc.interface";
 export * from "./use-cases/start-game-uc.interface";
 export * from "./type/game-types";
+export * from "./di/mode-token.provider";

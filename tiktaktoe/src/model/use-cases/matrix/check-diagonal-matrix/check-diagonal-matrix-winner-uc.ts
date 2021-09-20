@@ -14,14 +14,17 @@
 * limitations under the License.
 */
 
+import { delay, inject, injectable } from "tsyringe";
+import { Log } from "../../../logging/log";
 import { Logging } from "../../../logging/log.interface";
 import { TikTakToeWinner } from "../../../type/game-types";
 import { GameUtil } from "../../../util/game-util";
 import { BaseUseCaseInterface } from "../../base-uc.interface";
 
+@injectable()
 export class CheckDiagonalMatrixWinnerUC implements BaseUseCaseInterface<TikTakToeWinner> {
 
-    constructor(private readonly logWrapper: Logging) { }
+    constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) { }
 
     public execute(data: number[][]): TikTakToeWinner {
         let diagonalWinner = this.getPrincipalDiagonalWinner(data);

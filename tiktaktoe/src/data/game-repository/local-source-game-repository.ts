@@ -14,9 +14,11 @@
 * limitations under the License.
 */
 
+import { injectable } from "tsyringe";
 import { MatrixSquareLength, Player } from "../../cross-cutting/index";
 import { LocalSourceGameRepositoryInterface } from "./game-repository.interface";
 
+@injectable()
 export class LocalSourceGameRepository implements LocalSourceGameRepositoryInterface {
 
     private data: number[][] = [];

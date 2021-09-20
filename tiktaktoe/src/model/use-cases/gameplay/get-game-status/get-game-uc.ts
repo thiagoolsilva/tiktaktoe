@@ -14,19 +14,17 @@
 * limitations under the License.
 */
 
-import {
-    TikTakToePlay,
-    StartGameUseCaseInterface,
-    ResetGameUseCase,
-    BaseUseCaseInterface,
-    TikTakToeWinner,
-    PlayRoundUseCaseInterface
-} from "../../model/index";
+import { inject, injectable } from "tsyringe";
+import { DataTokenGameRepository, GameRepositoryInterface } from "../../../../data";
 
-export interface PresentationDependencies {
-    source: number[][];
-    readonly checkWinnerUC: BaseUseCaseInterface<TikTakToeWinner>;
-    readonly playRoundUC: PlayRoundUseCaseInterface<number[][], TikTakToePlay>;
-    readonly startGameUC: StartGameUseCaseInterface;
-    readonly resetGameUC: ResetGameUseCase;
+@injectable()
+export class GetGameStatusUC implements GetGameStatusUC {
+
+    public constructor(
+        @inject(DataTokenGameRepository) public gameRepository: GameRepositoryInterface
+    ) { }
+
+    public execute(): number[][] {
+        return this.gameRepository.gameStatus();
+    }
 }

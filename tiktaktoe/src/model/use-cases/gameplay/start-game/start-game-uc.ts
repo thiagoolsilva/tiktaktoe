@@ -14,13 +14,15 @@
 * limitations under the License.
 */
 
-import { GameRepository } from "../../../../data/index";
+import { inject, injectable } from "tsyringe";
+import { DataTokenGameRepository, GameRepositoryInterface } from "../../../../data/index";
 import { StartGameUseCaseInterface } from "../../start-game-uc.interface";
 
+@injectable()
 export class StartGameUC implements StartGameUseCaseInterface {
 
     public constructor(
-        private gameRepository: GameRepository
+        @inject(DataTokenGameRepository) private gameRepository: GameRepositoryInterface
     ) { }
 
     public execute(): number[][] {

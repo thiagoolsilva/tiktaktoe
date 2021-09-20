@@ -14,20 +14,21 @@
 * limitations under the License.
 */
 
-import { Logging } from "./log.interface";
+import { container, instanceCachingFactory } from "tsyringe";
+import { GameRepository, LocalSourceGameRepository } from "..";
 
-export class Log implements Logging {
-
-    constructor(public shouldLog: boolean = false) { }
-
-    public setMessageStatus(shouldLog: boolean) {
-        this.shouldLog = shouldLog;
+export const DataTokenLocalGameRepository = "DataTokenLocalGameRepository";
+container.register(
+    DataTokenLocalGameRepository,
+    {
+        useFactory: instanceCachingFactory<LocalSourceGameRepository>(c => c.resolve(LocalSourceGameRepository))
     }
+)
 
-    public log(message: string): void {
-        if (this.shouldLog) {
-            console.log(message);
-        }
+export const DataTokenGameRepository = "DataTokenGameRepository";
+container.register(
+    DataTokenGameRepository,
+    {
+        useFactory: instanceCachingFactory<GameRepository>(c => c.resolve(GameRepository))
     }
-
-}
+)

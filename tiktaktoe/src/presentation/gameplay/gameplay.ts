@@ -14,14 +14,19 @@
 * limitations under the License.
 */
 
-import { TikTakToePlay, TikTakToeWinner } from "../../model/index";
-
+import { injectable, singleton } from "tsyringe";
+import { TikTakToePlay, TikTakToeWinner } from "../../model";
 import { GameplayInterface } from "../gameplay.interface";
-import { PresentationDependencies } from "./presentation.dependencies";
+import { PresentationDependencies } from "./gameplay.dependencies";
 
-export class Handler implements GameplayInterface {
 
-    constructor(private dependencies: PresentationDependencies) { }
+@injectable()
+@singleton()
+export class GamePlay implements GameplayInterface {
+
+    constructor(
+        public dependencies: PresentationDependencies
+    ) { }
 
     public startGame(): number[][] {
         return this.dependencies.startGameUC.execute();
@@ -30,11 +35,11 @@ export class Handler implements GameplayInterface {
         return this.dependencies.resetGameUC.execute();
     }
     public gameStatus(): number[][] {
-        return this.dependencies.source;
+        return this.dependencies.getGameStatusUC.execute();
     }
 
-    public playRound(data: number[][], play: TikTakToePlay): TikTakToeWinner {
-        const playRound = this.dependencies.playRoundUC.execute(data, play);
+    public playRound(play: TikTakToePlay): TikTakToeWinner {
+        const playRound = this.dependencies.playRoundUC.execute(play);
 
         return this.dependencies.checkWinnerUC.execute(playRound);
     }

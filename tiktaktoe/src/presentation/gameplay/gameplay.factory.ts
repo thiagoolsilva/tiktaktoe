@@ -14,6 +14,13 @@
 * limitations under the License.
 */
 
-export interface PlayRoundUseCaseInterface<T, R> {
-    execute(play: R): T;
+import "reflect-metadata";
+import { container } from "tsyringe";
+import { GamePlay } from "./gameplay";
+
+export class PresentationFactory {
+
+    public createGame(): GamePlay {
+        return container.resolve(GamePlay);
+    }
 }

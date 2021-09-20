@@ -14,19 +14,22 @@
 * limitations under the License.
 */
 
+import { inject, injectable } from "tsyringe";
+import { DataTokenLocalGameRepository } from "../di/data-token-provider";
 import {
     GameRepositoryInterface,
     LocalSourceGameRepositoryInterface
 } from "./game-repository.interface";
 
+@injectable()
 export class GameRepository implements GameRepositoryInterface {
 
     public constructor(
-        private readonly localSource: LocalSourceGameRepositoryInterface
+        @inject(DataTokenLocalGameRepository) public readonly localSource: LocalSourceGameRepositoryInterface
     ) { }
 
-    initGame(): number[][] {
-        return this.initGame();
+    public initGame(): number[][] {
+        return this.localSource.initGame();
     }
 
     public gameStatus(): number[][] {

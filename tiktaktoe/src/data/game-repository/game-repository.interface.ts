@@ -20,4 +20,8 @@ export interface GameRepositoryInterface {
     insertPlayRound(xPos: number, yPos: number, value: number): number[][];
 }
 
-export interface LocalSourceGameRepositoryInterface extends GameRepositoryInterface { }
+export interface LocalSourceGameRepositoryInterface {
+    initGame(): number[][];
+    gameStatus(): number[][];
+    insertPlayRound(xPos: number, yPos: number, value: number): number[][];
+}

@@ -17,3 +17,4 @@
 export * from "./game-repository/game-repository.interface";
 export * from "./game-repository/game-repository";
 export * from "./game-repository/local-source-game-repository";
+export * from "./di/data-token-provider";

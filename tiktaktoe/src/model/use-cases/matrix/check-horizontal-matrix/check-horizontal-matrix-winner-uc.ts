@@ -14,10 +14,12 @@
 * limitations under the License.
 */
 
+import { injectable } from "tsyringe";
 import { TikTakToeWinner } from "../../../type/game-types";
 import { GameUtil } from "../../../util/game-util";
 import { BaseUseCaseInterface } from "../../base-uc.interface";
 
+@injectable()
 export class CheckHorizontalMatrixWinner implements BaseUseCaseInterface<TikTakToeWinner> {
 
     public execute(data: number[][]): TikTakToeWinner {

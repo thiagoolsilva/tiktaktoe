@@ -20,5 +20,5 @@ export interface GameplayInterface {
     startGame(): number[][];
     resetGame(): number[][];
     gameStatus(): number[][];
-    playRound(data: number[][], play: TikTakToePlay): TikTakToeWinner;
+    playRound(play: TikTakToePlay): TikTakToeWinner;
 }

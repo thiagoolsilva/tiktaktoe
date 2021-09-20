@@ -14,10 +14,12 @@
 * limitations under the License.
 */
 
+import { injectable } from "tsyringe";
 import { PositionAlreadyUsedException } from "../../../../../cross-cutting/index";
 import { TikTakToePlay } from "../../../../type/game-types";
 import { PlayRoundValidationInterface } from "./play-round-validation.interface";
 
+@injectable()
 export class PlayRoundValidation implements PlayRoundValidationInterface<TikTakToePlay> {
 
     public checkIfPositionIsAlreadyFilledOrThrow(data: number[][], play: TikTakToePlay): void {

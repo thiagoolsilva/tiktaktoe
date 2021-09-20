@@ -14,5 +14,7 @@
 * limitations under the License.
 */
 
-export * from "./handler/presentation";
-export * from "./gameplay.interface";
+// This line should be the first to dependency injection works properly
+// import "reflect-metadata";
+
+export * from "./gameplay/gameplay.factory";

@@ -14,16 +14,32 @@
 * limitations under the License.
 */
 
+import { autoInjectable, delay, inject } from "tsyringe";
 import { TikTakToeWinner } from "../../../type/game-types";
 import { BaseUseCaseInterface } from "../../base-uc.interface";
-import { CheckWinnerDependency } from "./check-winner.dependency";
+import { CheckDiagonalMatrixWinnerUC } from "../../matrix/check-diagonal-matrix/check-diagonal-matrix-winner-uc";
+import { CheckHorizontalMatrixWinner } from "../../matrix/check-horizontal-matrix/check-horizontal-matrix-winner-uc";
+import { CheckVerticalMatrixWinner } from "../../matrix/check-vertical-matrix/check-vertical-matrix-winner-uc";
 
+@autoInjectable()
 export class CheckWinnerUC implements BaseUseCaseInterface<TikTakToeWinner> {
 
-    public constructor(private readonly checkWinnerDependency: CheckWinnerDependency) { }
+    private readonly matrixUC: BaseUseCaseInterface<TikTakToeWinner>[];
+
+    public constructor(
+        @inject(delay(() => CheckDiagonalMatrixWinnerUC)) private checkDiagonalUC: BaseUseCaseInterface<TikTakToeWinner>,
+        @inject(delay(() => CheckHorizontalMatrixWinner)) private checkHorizontalUC: BaseUseCaseInterface<TikTakToeWinner>,
+        @inject(delay(() => CheckVerticalMatrixWinner)) private checkVerticalUC: BaseUseCaseInterface<TikTakToeWinner>
+    ) { 
+        this.matrixUC = [
+            this.checkDiagonalUC,
+            this.checkHorizontalUC,
+            this.checkVerticalUC
+        ];
+    }
 
     public execute(data: number[][]): TikTakToeWinner {
-        for (let matrixUC of this.checkWinnerDependency.checkMatrixUC) {
+        for (let matrixUC of this.matrixUC) {
             let result = matrixUC.execute(data);
             if (result.player) {
                 return result;

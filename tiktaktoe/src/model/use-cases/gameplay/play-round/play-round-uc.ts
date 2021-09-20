@@ -14,17 +14,21 @@
 * limitations under the License.
 */
 
+import { injectable } from "tsyringe";
 import { TikTakToePlay } from "../../../type/game-types";
 import { PlayRoundUseCaseInterface } from "../../base-play-round-uc.interface";
 import { PlayRoundDependencyUC } from "./play-round.dependency";
 
 
+@injectable()
 export class PlayRoundUC implements PlayRoundUseCaseInterface<number[][], TikTakToePlay> {
 
     public constructor(private dependencies: PlayRoundDependencyUC) { }
 
-    public execute(data: number[][], play: TikTakToePlay): number[][] {
-        this.dependencies.playRoundValidation.checkIfPositionIsAlreadyFilledOrThrow(data, play);
+    public execute(play: TikTakToePlay): number[][] {
+        const dataSource = this.dependencies.gameRepository.gameStatus();
+
+        this.dependencies.playRoundValidation.checkIfPositionIsAlreadyFilledOrThrow(dataSource, play);
 
         this.dependencies.gameRepository.insertPlayRound(play.xPosition, play.yPosition, play.player);
 

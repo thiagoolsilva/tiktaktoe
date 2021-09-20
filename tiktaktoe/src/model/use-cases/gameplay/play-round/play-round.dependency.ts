@@ -14,14 +14,18 @@
 * limitations under the License.
 */
 
-import { GameRepository } from "../../../../data/index";
-import { TikTakToePlay, TikTakToeWinner } from "../../../type/game-types";
-import { BaseUseCaseInterface } from "../../base-uc.interface";
+import { delay, inject, injectable } from "tsyringe";
+import { DataTokenGameRepository, GameRepositoryInterface } from "../../../../data/index";
+import { TikTakToePlay } from "../../../type/game-types";
+import { PlayRoundValidation } from "./validation/play-round-validation";
 import { PlayRoundValidationInterface } from "./validation/play-round-validation.interface";
 
- 
-export interface PlayRoundDependencyUC {
-    readonly playRoundValidation: PlayRoundValidationInterface<TikTakToePlay>;
-    readonly matrixUC: BaseUseCaseInterface<TikTakToeWinner>;
-    readonly gameRepository: GameRepository;
+
+@injectable()
+export class PlayRoundDependencyUC {
+
+    public constructor(
+        @inject(delay(() => PlayRoundValidation)) public playRoundValidation: PlayRoundValidationInterface<TikTakToePlay>,
+        @inject(DataTokenGameRepository) public gameRepository: GameRepositoryInterface
+    ) { }
 }

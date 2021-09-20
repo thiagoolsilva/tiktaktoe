@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/tsc -p tsconfig.json",
-    "watch": "./node_modules/.bin/tsc -p tsconfig.json -w"
+    "watch": "./node_modules/.bin/tsc -p tsconfig.json -w",
+    "remove-dist": "./node_modules/.bin/rimraf ./dist"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,11 @@
   },
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe#readme",
   "devDependencies": {
+    "rimraf": "3.0.2",
     "typescript": "4.4.3"
+  },
+  "dependencies": {
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.6.0"
   }
 }

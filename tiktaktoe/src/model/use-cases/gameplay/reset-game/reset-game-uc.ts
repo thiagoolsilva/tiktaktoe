@@ -14,17 +14,23 @@
 * limitations under the License.
 */
 
-import { GameRepository } from "../../../../data/index";
+import { inject, injectable } from "tsyringe";
+import {
+    DataTokenGameRepository,
+    GameRepositoryInterface
+} from "../../../../data/index";
 import { ResetGameInterface } from "../../reset-game-uc.interface";
 
+@injectable()
 export class ResetGameUseCase implements ResetGameInterface {
 
     public constructor(
-        private gameRepository: GameRepository
-    ) { }
+        @inject(DataTokenGameRepository) public gameRepository: GameRepositoryInterface
+    ) { 
+        console.log("ResetGameUseCase constructor");
+    }
 
     public execute(): number[][] {
         return this.gameRepository.initGame();
     }
-
 }
