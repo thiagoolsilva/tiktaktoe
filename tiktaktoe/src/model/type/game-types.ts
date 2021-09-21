@@ -16,8 +16,8 @@
 
 import { Player } from "../../cross-cutting/index";
 
-export const FirstPlayerWinnerScore = 6;
-export const SecondPlayerWinnerScore = 3;
+export const FirstPlayerWinnerScore = 9;
+export const SecondPlayerWinnerScore = 6;
 
 export type TikTakToeWinner = {
     player?: Player

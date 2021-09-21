@@ -14,8 +14,10 @@
 * limitations under the License.
 */
 
+import { singleton } from "tsyringe";
 import { Logging } from "./log.interface";
 
+@singleton()
 export class Log implements Logging {
 
     constructor(public shouldLog: boolean = false) { }
