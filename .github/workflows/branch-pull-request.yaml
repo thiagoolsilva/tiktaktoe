@@ -5,7 +5,6 @@ name: CI
 # Every new pull request to develop branch must fire CI check
 on: [pull_request]
 
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -15,17 +14,17 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # install all dependencies
-    - uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: install # will run `yarn install`
+      - name: Install all dependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install # will run `yarn install`
 
-    - uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: test # will run `yarn install`
-
-    
+      - name: Run unit testing
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: test # will run `yarn install`
