@@ -14,35 +14,34 @@
  * limitations under the License.
  */
 
-
-import { Player } from "../cross-cutting";
-import { PresentationFactory } from "../presentation/index";
+import { Player } from '../cross-cutting';
+import { PresentationFactory } from '../presentation/index';
 
 export class Index {
-    main() {
-        const handler = new PresentationFactory().createGame();
-        console.log(handler.startGame());
-        handler.playRound({
-            player: Player.firstPlayer,
-            xPosition: 0,
-            yPosition: 0
-        });
-        handler.playRound({
-            player: Player.firstPlayer,
-            xPosition: 0,
-            yPosition: 1
-        });
-        handler.playRound({
-            player: Player.firstPlayer,
-            xPosition: 0,
-            yPosition: 2
-        });
-        console.log("winner", handler.getWinner());
-        console.log(handler.gameStatus());
-        console.log(handler.resetGame());
-    }
+  main() {
+    const handler = new PresentationFactory().createGame();
+    console.log(handler.startGame());
+    handler.playRound({
+      player: Player.firstPlayer,
+      xPosition: 0,
+      yPosition: 0,
+    });
+    handler.playRound({
+      player: Player.firstPlayer,
+      xPosition: 0,
+      yPosition: 1,
+    });
+    handler.playRound({
+      player: Player.firstPlayer,
+      xPosition: 0,
+      yPosition: 2,
+    });
+    console.log('winner', handler.getWinner());
+    console.log(handler.gameStatus());
+    console.log(handler.resetGame());
+  }
 }
 
 void (function () {
-    new Index().main();
+  new Index().main();
 })();
