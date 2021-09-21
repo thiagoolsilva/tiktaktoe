@@ -14,6 +14,5 @@
  * limitations under the License.
  */
 
-
-export * from "./exception/position-already-used.exception";
-export * from "./type/game-type";
+export * from './exception/position-already-used.exception';
+export * from './type/game-type';
