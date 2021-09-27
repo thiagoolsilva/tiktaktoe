@@ -15,9 +15,9 @@
  */
 
 export enum Player {
-    firstPlayer = 3,
-    secondPlayer = 2,
-    notPlayed = 0
+  firstPlayer = 3,
+  secondPlayer = 2,
+  notPlayed = 0,
 }
 
 export const MatrixSquareLength = 3;

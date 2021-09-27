@@ -15,10 +15,9 @@
  */
 
 export class PositionAlreadyUsedException extends Error {
+  public constructor(message: string) {
+    super(message);
 
-    public constructor(message:string) {
-        super(message);
-
-        Object.setPrototypeOf(this, PositionAlreadyUsedException.prototype);
-    }
+    Object.setPrototypeOf(this, PositionAlreadyUsedException.prototype);
+  }
 }
