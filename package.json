@@ -11,10 +11,11 @@
     "remove-node-modules": "npx rimraf ./coverage",
     "clean-all": "yarn remove-dist && yarn remove-coverage && yarn remove-node-modules",
     "test": "./node_modules/.bin/jest ",
-    "run-specific-tests": "./node_modules/.bin/jest --findRelatedTests ",
+    "test:specific-tests": "./node_modules/.bin/jest --findRelatedTests ",
     "code-formatter": "yarn prettier --write .",
-    "prehusky": "./node_modules/.bin/husky install",
-    "poshusky": "yarn prehusky && ./node_modules/.bin/husky add .husky/pre-push 'npx pretty-quick --staged'"
+    "prehusky": "./node_modules/.bin/rimraf .husky",
+    "husky": "./node_modules/.bin/husky install",
+    "posthusky": "./node_modules/.bin/ts-node scripts/src/husky/index.ts"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,17 @@
   },
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe#readme",
   "devDependencies": {
-    "@types/jest": "^27.0.1",
+    "@types/fs-readdir-recursive": "1.0.0",
+    "@types/jest": "27.0.1",
+    "@types/shelljs": "0.8.9",
+    "@types/yargs": "17.0.3",
+    "fs-readdir-recursive": "1.1.0",
     "husky": "7.0.2",
     "jest": "27.2.0",
     "prettier": "2.4.1",
     "pretty-quick": "3.1.1",
     "rimraf": "3.0.2",
+    "shelljs": "0.8.4",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
