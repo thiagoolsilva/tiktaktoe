@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-import { singleton } from 'tsyringe';
-import { Logging } from './log.interface';
+import { ReadProjectFilenameInterface } from "./read-project-filenames.interface";
+import path from "path";
+import read from "fs-readdir-recursive";
+import config from "../config.json";
 
-@singleton()
-export class Log implements Logging {
-  private shouldLog: boolean = false
-
-  public setMessageStatus(shouldLog: boolean) {
-    this.shouldLog = shouldLog;
-  }
-
-  public log(message: string): void {
-    if (this.shouldLog) {
-      console.log(message);
+export class ReadContentFilename implements ReadProjectFilenameInterface {
+    getProjectFilenames(rootFolder: string): string[] {
+        const absoluteDirectory = path.resolve(rootFolder);
+        return read(absoluteDirectory, (filter) => {
+            return !config.excludeFromSearch.includes(filter)
+        });
     }
-  }
 }

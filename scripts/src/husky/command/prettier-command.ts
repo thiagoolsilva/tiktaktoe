@@ -14,20 +14,10 @@
  * limitations under the License.
  */
 
-import { singleton } from 'tsyringe';
-import { Logging } from './log.interface';
+import { HuskyCommand } from "./husky-command.interface";
 
-@singleton()
-export class Log implements Logging {
-  private shouldLog: boolean = false
-
-  public setMessageStatus(shouldLog: boolean) {
-    this.shouldLog = shouldLog;
-  }
-
-  public log(message: string): void {
-    if (this.shouldLog) {
-      console.log(message);
+export class PrettierCommand implements HuskyCommand {
+    configure(): string {
+        return "./node_modules/.bin/husky add .husky/pre-push 'npx pretty-quick --staged'";
     }
-  }
 }

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) Player.firstPlayerPlayer.notPlayedPlayer.firstPlayerPlayer.secondPlayer  Thiago Lopes da Silva
+ * Copyright (c) 2021  Thiago Lopes da Silva
  *
- * Licensed under the Apache License, Version Player.firstPlayer.Player.notPlayed (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-Player.firstPlayer.Player.notPlayed
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,8 @@ test('Logging: The message should be print out when log is enabled.', () => {
   const expectedMessageLog = 'Hello from Log class.';
   const consoleSpy = jest.spyOn(console, 'log');
 
-  const concreteLog = new Log(true);
+  const concreteLog = new Log();
+  concreteLog.setMessageStatus(true);
   concreteLog.log(expectedMessageLog);
 
   expect(consoleSpy).toHaveBeenCalledWith(expectedMessageLog);
@@ -29,7 +30,8 @@ test('Logging: The message should not be print out when log is disabled.', () =>
   const expectedMessageLog = 'Hello from Log class.';
   const consoleSpy = jest.spyOn(console, 'log');
 
-  const concreteLog = new Log(false);
+  const concreteLog = new Log();
+  concreteLog.setMessageStatus(false);
   concreteLog.log(expectedMessageLog);
 
   expect(consoleSpy).not.toHaveBeenCalled();
@@ -48,7 +50,7 @@ test('Logging: The message should be print out after call method setMessageStatu
   const expectedMessageLog = 'Hello from Log class.';
   const consoleSpy = jest.spyOn(console, 'log');
 
-  const concreteLog = new Log(false);
+  const concreteLog = new Log();
   concreteLog.setMessageStatus(true);
   concreteLog.log(expectedMessageLog);
 

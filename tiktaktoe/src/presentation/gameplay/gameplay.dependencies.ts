@@ -18,7 +18,6 @@ import {
   BaseUseCaseInterface,
   ModelTokenCheckWinnerUC,
   ModelTokenGetGameStatusUC,
-  ModelTokenLogging,
   ModelTokenPlayRoundUC,
   ModelTokenResetGameUC,
   ModelTokenStartGameUC,
@@ -29,14 +28,15 @@ import {
   TikTakToeWinner,
 } from '../../model/index';
 
-import { injectable, inject } from 'tsyringe';
+import { injectable, inject, delay } from 'tsyringe';
 import { Logging } from '../../model/logging/log.interface';
 import { GetGameInterface } from '../../model/use-cases/get-game-uc.interface';
+import { Log } from '../../model/logging/log';
 
 @injectable()
 export class PresentationDependencies {
   public constructor(
-    @inject(ModelTokenLogging) public logWrapper: Logging,
+    @inject(delay(() => Log)) public logWrapper: Logging,
     @inject(ModelTokenResetGameUC) public resetGameUC: ResetGameInterface,
     @inject(ModelTokenPlayRoundUC)
     public playRoundUC: PlayRoundUseCaseInterface<number[][], TikTakToePlay>,

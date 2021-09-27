@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-import { singleton } from 'tsyringe';
-import { Logging } from './log.interface';
+import { HuskyCommand } from "./husky-command.interface";
 
-@singleton()
-export class Log implements Logging {
-  private shouldLog: boolean = false
+export class CheckCopyrightCommand implements HuskyCommand {
 
-  public setMessageStatus(shouldLog: boolean) {
-    this.shouldLog = shouldLog;
-  }
-
-  public log(message: string): void {
-    if (this.shouldLog) {
-      console.log(message);
+    configure(): string {
+        return "./node_modules/.bin/husky add .husky/pre-commit 'npx ts-node scripts/src/check-copyright/index.ts'";
     }
-  }
+
 }

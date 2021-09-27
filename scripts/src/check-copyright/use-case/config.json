@@ -1,0 +1,21 @@
+{
+  "copyright": "Copyright (c) 2021  Thiago Lopes da Silva",
+  "excludeFromSearch": [
+    "node_modules",
+    "dist",
+    "json",
+    "coverage",
+    ".git",
+    ".husky",
+    ".gitignore",
+    ".github",
+    "tsconfig.json",
+    "package.json",
+    ".prettierignore",
+    ".prettierrc.yaml",
+    "jest.config.ts",
+    "LICENSE",
+    "README.md",
+    "yarn.lock"
+  ]
+}

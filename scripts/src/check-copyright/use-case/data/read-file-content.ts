@@ -14,20 +14,14 @@
  * limitations under the License.
  */
 
-import { singleton } from 'tsyringe';
-import { Logging } from './log.interface';
+import { ReadFileContentInterface } from "./read-file-content.interface";
+import fs from "fs";
 
-@singleton()
-export class Log implements Logging {
-  private shouldLog: boolean = false
-
-  public setMessageStatus(shouldLog: boolean) {
-    this.shouldLog = shouldLog;
-  }
-
-  public log(message: string): void {
-    if (this.shouldLog) {
-      console.log(message);
+export class ReadFileContent implements ReadFileContentInterface {
+    public async readAsyncContentFile(path: string): Promise<string> {
+        return await fs.readFileSync(path, {
+            encoding: "utf-8"
+        });
     }
-  }
+
 }
