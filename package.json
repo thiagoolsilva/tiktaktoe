@@ -11,11 +11,14 @@
     "remove-coverage": "npx rimraf ./coverage",
     "remove-node-modules": "npx rimraf ./coverage",
     "clean-all": "yarn remove-dist && yarn remove-coverage && yarn remove-node-modules",
-  
     "code-formatter": "yarn prettier --write .",
     "prehusky": "./node_modules/.bin/rimraf .husky",
     "husky": "./node_modules/.bin/husky install",
-    "posthusky": "./node_modules/.bin/ts-node scripts/src/husky/index.ts"
+    "posthusky": "./node_modules/.bin/ts-node scripts/src/husky/index.ts",
+    "check-copyright": "./node_modules/.bin/ts-node scripts/src/check-copyright/index.ts",
+    "projects:build": "./node_modules/.bin/lerna run build",
+    "projects:bootstrap": "./node_modules/.bin/lerna bootstrap",
+    "projects:cli:start": "./node_modules/.bin/lerna run start --scope @tiktaktoe/ui"
   },
   "repository": {
     "type": "git",

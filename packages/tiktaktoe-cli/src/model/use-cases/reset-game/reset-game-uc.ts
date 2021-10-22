@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { TableRepositoryInterface } from "data/table-repository/table-repository.interface";
+import { ResetGameAdapterInterface } from "model/adapter/reset-game-adapter/reset-game-adapter.interface";
+import { ResetGameUCInterface } from "./reset-game-uc.interface";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
+
+export class ResetGameUC implements ResetGameUCInterface {
+
+    public constructor(private readonly resetGameAdapter: ResetGameAdapterInterface,
+        private readonly tableRepository: TableRepositoryInterface) { }
+
+    public resetGame(): void {
+        this.resetGameAdapter.resetGame();
+        this.tableRepository.resetGameTable();
     }
-).main();
+}

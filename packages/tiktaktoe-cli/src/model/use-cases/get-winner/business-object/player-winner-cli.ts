@@ -14,22 +14,8 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { PlayerCli } from "model/business-object/player-cli";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
-    }
-).main();
+export class PlayerWinnerCli {
+    playerCli?: PlayerCli;
+}

@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { TableEntity } from "./persistent-object/table-entity";
+import { LocalTableRepositoryInterface, TableRepositoryInterface } from "./table-repository.interface";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
+export class TableRepository implements TableRepositoryInterface {
+
+    public constructor(private readonly localSource: LocalTableRepositoryInterface) { }
+
+    public save(rolePosition: TableEntity): string {
+        return this.localSource.save(rolePosition);
     }
-).main();
+    public getGameTable(): string {
+        return this.localSource.getGameTable();
+    }
+    public resetGameTable(): void {
+        this.localSource.resetGameTable();
+    }
+}

@@ -14,5 +14,6 @@
  * limitations under the License.
  */
 
-export * from './gameplay/gameplay.factory';
+export { PresentationFactory } from './gameplay/gameplay.factory';
 export { GamePlay } from './gameplay/gameplay';
+export { GameplayInterface } from './gameplay.interface';

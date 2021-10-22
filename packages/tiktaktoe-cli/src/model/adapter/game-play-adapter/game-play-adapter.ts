@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-import { GamePlay, TikTakToePlay, Player } from "@tiktaktoe/core";
-import { PlayRoleInterfaceAdapter } from "./play-role.interface";
+import { TikTakToePlay, Player, GameplayInterface } from "@tiktaktoe/core";
+import { PlayerCli } from "../../business-object/player-cli";
+import { GamePlayInterfaceAdapter } from "./game-play-adapter.interface";
 
-export class PlayRoleAdapter implements PlayRoleInterfaceAdapter {
+export class GamePlayAdapter implements GamePlayInterfaceAdapter {
 
-    public constructor(private gamePlay: GamePlay) { }
+    public constructor(private gamePlay: GameplayInterface) { }
 
-    public play(play: number, player: Player): void {
+    public play(play: number, playerCli: PlayerCli): void {
+        let playerCore = playerCli === PlayerCli.firstPlayer ? Player.firstPlayer : Player.secondPlayer;
         let nextPlay: TikTakToePlay = {
-            player: player,
+            player: playerCore,
             xPosition: 0,
             yPosition: 0
         };
@@ -56,7 +58,6 @@ export class PlayRoleAdapter implements PlayRoleInterfaceAdapter {
                 nextPlay.xPosition = 2
                 nextPlay.yPosition = 2
                 break;
-
         }
         this.gamePlay.playRound(nextPlay);
     }

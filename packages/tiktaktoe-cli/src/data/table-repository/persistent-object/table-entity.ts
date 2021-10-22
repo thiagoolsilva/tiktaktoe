@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { Player } from "@tiktaktoe/core";
-
-export interface PlayRoleInterfaceAdapter {
-    play(play: number, player: Player): void
+export class TableEntity {
+    xPosition: number;
+    yPosition: number;
+    valueInPosition: string;
 }

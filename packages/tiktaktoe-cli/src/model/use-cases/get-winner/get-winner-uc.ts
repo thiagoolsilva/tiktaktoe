@@ -14,22 +14,17 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { GetWinnerAdapterInterface } from "../../adapter/get-winner-adapter/get-winner-adapter.interface";
+import { PlayerWinnerCli } from "./business-object/player-winner-cli";
+import { GetWinnerUCInterface } from "./get-winner-uc.interface";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
+
+export class GetWinnerUC implements GetWinnerUCInterface {
+
+    public constructor(private readonly getWinnerAdapterInterface: GetWinnerAdapterInterface) { }
+
+    public getWinner(): PlayerWinnerCli | undefined {
+        return this.getWinnerAdapterInterface.getWinner();
     }
-).main();
+
+}

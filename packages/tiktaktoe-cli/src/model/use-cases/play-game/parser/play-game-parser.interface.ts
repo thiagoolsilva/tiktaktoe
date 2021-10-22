@@ -14,22 +14,10 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { TableEntity } from "data/table-repository/persistent-object/table-entity";
+import { TikTakToeTable } from "../business-object/tiktaktoe-table";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
-    }
-).main();
+
+export interface PlayGameParserInterface {
+    showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity;
+}

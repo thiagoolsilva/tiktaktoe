@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+import { GameplayInterface } from "@tiktaktoe/core";
+import { StartGameAdapterInterface } from "./start-game-adapter.interface";
 
-// TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
+export class StartGameAdapter implements StartGameAdapterInterface {
+
+    public constructor(private gamePlay: GameplayInterface) { }
+
+    public startGame(): void {
+        this.gamePlay.startGame();
     }
-).main();
+}
