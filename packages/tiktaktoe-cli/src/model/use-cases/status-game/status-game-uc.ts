@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "data/table-repository/table-repository.interface";
+import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
 import { StatusGameUCInterface } from "./status-game-uc.interface";
 
 export class StatusGameUC implements StatusGameUCInterface {

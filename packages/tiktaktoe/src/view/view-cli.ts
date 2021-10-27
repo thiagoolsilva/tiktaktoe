@@ -17,7 +17,7 @@
 import { Player } from '../cross-cutting';
 import { PresentationFactory } from '../presentation/index';
 
-export class Index {
+export class ViewCLI {
   main() {
     const handler = new PresentationFactory().createGame();
     console.log(handler.startGame());
@@ -31,15 +31,15 @@ export class Index {
       xPosition: 0,
       yPosition: 1,
     });
-    // handler.playRound({
-    //   player: Player.firstPlayer,
-    //   xPosition: 0,
-    //   yPosition: 2,
-    // });
+    handler.playRound({
+      player: Player.firstPlayer,
+      xPosition: 0,
+      yPosition: 2,
+    });
     console.log('winner', handler.getWinner());
     console.log(handler.gameStatus());
     console.log(handler.resetGame());
   }
 }
 
-void new Index().main();
+void new ViewCLI().main();

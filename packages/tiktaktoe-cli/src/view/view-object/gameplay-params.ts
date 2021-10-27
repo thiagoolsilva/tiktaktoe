@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import { GetWinnerUCInterface } from "model/use-cases/get-winner/get-winner-uc.interface";
-import { PlayGameUCInterface } from "model/use-cases/play-game/play-game-uc.interface"
-import { ResetGameUCInterface } from "model/use-cases/reset-game/reset-game-uc.interface"
-import { StartGameUCInterface } from "model/use-cases/start-game/start-game-uc.interface"
-import { StatusGameUCInterface } from "model/use-cases/status-game/status-game-uc.interface"
+import { GetWinnerUCInterface } from "../../model/use-cases/get-winner/get-winner-uc.interface";
+import { PlayGameUCInterface } from "../../model/use-cases/play-game/play-game-uc.interface"
+import { ResetGameUCInterface } from "../../model/use-cases/reset-game/reset-game-uc.interface"
+import { StartGameUCInterface } from "../../model/use-cases/start-game/start-game-uc.interface"
+import { StatusGameUCInterface } from "../../model/use-cases/status-game/status-game-uc.interface"
 
 export class GameplayParams {
     readonly playGameUCInterface: PlayGameUCInterface;

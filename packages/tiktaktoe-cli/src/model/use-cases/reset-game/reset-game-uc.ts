@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "data/table-repository/table-repository.interface";
-import { ResetGameAdapterInterface } from "model/adapter/reset-game-adapter/reset-game-adapter.interface";
+import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
+import { ResetGameAdapterInterface } from "../../adapter/reset-game-adapter/reset-game-adapter.interface";
 import { ResetGameUCInterface } from "./reset-game-uc.interface";
 
 

@@ -23,7 +23,16 @@ export class ReadContentFilename implements ReadProjectFilenameInterface {
     getProjectFilenames(rootFolder: string): string[] {
         const absoluteDirectory = path.resolve(rootFolder);
         return read(absoluteDirectory, (filter) => {
-            return !config.excludeFromSearch.includes(filter)
+            const excludeFilePattern:string[] = config.excludeFilePattern;
+
+            let containsFilePath = false;
+            excludeFilePattern.forEach(item => {
+                if(filter.includes(item)) {
+                    containsFilePath = true;
+                }
+            })
+
+            return !config.excludeFromSearch.includes(filter) && !containsFilePath ;
         });
     }
 }
