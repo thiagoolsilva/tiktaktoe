@@ -23,8 +23,8 @@ export class GamePlayAdapter implements GamePlayInterfaceAdapter {
     public constructor(private gamePlay: GameplayInterface) { }
 
     public play(play: number, playerCli: PlayerCli): void {
-        let playerCore = playerCli === PlayerCli.firstPlayer ? Player.firstPlayer : Player.secondPlayer;
-        let nextPlay: TikTakToePlay = {
+        const playerCore = playerCli === PlayerCli.firstPlayer ? Player.firstPlayer : Player.secondPlayer;
+        const nextPlay: TikTakToePlay = {
             player: playerCore,
             xPosition: 0,
             yPosition: 0

@@ -28,3 +28,8 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: projects:cli:test
+
+      - name: Run eslint
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: projects:lint

@@ -34,8 +34,9 @@ export class GamePlayCli {
         const matrixSize = 9;
         const invalidChooseOptionIndex = -1;
         const playRoleOptions = [...Array(matrixSize).keys()].map(value => value + 1).map(value => value.toString());
+        const gameplayLifeCycle = true;
         try {
-            while (true) {
+            while (gameplayLifeCycle) {
                 const valueInPosition = this.currentPlayer == PlayerCli.firstPlayer ? PlayPositions.POSITION_2 : PlayPositions.POSITION_1;
                 const currentGameStatus = this.gameplayParams.statusGameUCInterface.getCurrentGameStatus();
                 readlineSync.keyInPause(`Hi [${this.currentPlayer}]. Your key is [${valueInPosition}] \n${currentGameStatus}\n`)

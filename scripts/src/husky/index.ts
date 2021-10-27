@@ -16,6 +16,7 @@
 
 import { exec } from "shelljs";
 import { CheckCopyrightCommand } from "./command/check-copyright-command";
+import { CheckEslintCommand } from "./command/check-eslint-command";
 import { HuskyCommand } from "./command/husky-command.interface";
 import { PrettierCommand } from "./command/prettier-command";
 
@@ -31,6 +32,7 @@ export class Husky {
 }
 
 void new Husky([
+    new CheckEslintCommand(),
     new PrettierCommand(),
     new CheckCopyrightCommand()]
 ).main();

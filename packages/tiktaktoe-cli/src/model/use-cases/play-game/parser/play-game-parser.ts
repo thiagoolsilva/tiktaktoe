@@ -21,7 +21,7 @@ import { PlayGameParserInterface } from "./play-game-parser.interface";
 export class PlayGameParser implements PlayGameParserInterface {
     public showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity {
         const { position, valueInPosition } = tikTakToeTable;
-        let tableEntity: TableEntity = {
+        const tableEntity: TableEntity = {
             xPosition: 0,
             yPosition: 0,
             valueInPosition: valueInPosition
