@@ -16,6 +16,7 @@
     "jest.config.ts",
     "LICENSE",
     "README.md",
-    "yarn.lock"
+    "yarn.lock",
+    "lerna.json"
   ]
 }

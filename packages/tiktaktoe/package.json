@@ -1,0 +1,41 @@
+{
+  "name": "@tiktaktoe/core",
+  "private": true,
+  "version": "1.0.0-beta.1",
+  "description": "> TODO: description",
+  "author": "Thiago Lopes da Silva <thiagoolsilva@gmail.com>",
+  "homepage": "https://github.com/thiagoolsilva/tiktaktoe/tree/main/packages/tiktaktoe#readme",
+  "license": "Apache-2.0",
+  "main": "dist/src/index",
+  "types": "dist/src/index",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoolsilva/tiktaktoe.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "./node_modules/.bin/rimraf dist node_modules",
+    "test": "./node_modules/.bin/jest ",
+    "test:specific-tests": "./node_modules/.bin/jest --findRelatedTests "
+  },
+  "bugs": {
+    "url": "https://github.com/thiagoolsilva/tiktaktoe/issues"
+  },
+  "dependencies": {
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.6.0"
+  },
+  "devDependencies": {
+    "jest": "27.2.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "27.0.5",
+    "ts-node": "^10.3.0"
+  }
+}

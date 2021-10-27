@@ -1,21 +1,25 @@
 {
   "name": "tiktaktoe",
-  "version": "1.0.0",
   "description": "Tik Tak Toe Game",
-  "main": "index.js",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "./node_modules/.bin/tsc -p tsconfig.json",
-    "watch": "./node_modules/.bin/tsc -p tsconfig.json -w",
     "remove-dist": "npx rimraf ./dist",
     "remove-coverage": "npx rimraf ./coverage",
     "remove-node-modules": "npx rimraf ./coverage",
     "clean-all": "yarn remove-dist && yarn remove-coverage && yarn remove-node-modules",
-    "test": "./node_modules/.bin/jest ",
-    "test:specific-tests": "./node_modules/.bin/jest --findRelatedTests ",
     "code-formatter": "yarn prettier --write .",
     "prehusky": "./node_modules/.bin/rimraf .husky",
     "husky": "./node_modules/.bin/husky install",
-    "posthusky": "./node_modules/.bin/ts-node scripts/src/husky/index.ts"
+    "posthusky": "./node_modules/.bin/ts-node scripts/src/husky/index.ts",
+    "check-copyright": "./node_modules/.bin/ts-node scripts/src/check-copyright/index.ts",
+    "projects:build": "./node_modules/.bin/lerna run build",
+    "projects:bootstrap": "./node_modules/.bin/lerna bootstrap",
+    "projects:cli:start": "./node_modules/.bin/lerna run start --scope @tiktaktoe/ui",
+    "projects:cli:test": "./node_modules/.bin/lerna run test --parallel"
   },
   "repository": {
     "type": "git",
@@ -34,6 +38,7 @@
     "fs-readdir-recursive": "1.1.0",
     "husky": "7.0.2",
     "jest": "27.2.0",
+    "lerna": "4.0.0",
     "prettier": "2.4.1",
     "pretty-quick": "3.1.1",
     "rimraf": "3.0.2",
@@ -41,9 +46,5 @@
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
-  },
-  "dependencies": {
-    "reflect-metadata": "0.1.13",
-    "tsyringe": "4.6.0"
   }
 }
