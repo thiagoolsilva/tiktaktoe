@@ -17,6 +17,7 @@
     "LICENSE",
     "README.md",
     "yarn.lock",
-    "lerna.json"
+    "lerna.json",
+    ".eslintrc.json"
   ]
 }
