@@ -19,7 +19,7 @@
     "projects:build": "./node_modules/.bin/lerna run build",
     "projects:bootstrap": "./node_modules/.bin/lerna bootstrap",
     "projects:cli:start": "./node_modules/.bin/lerna run start --scope @tiktaktoe/ui",
-    "projects:cli:test": "./node_modules/.bin/lerna run test --parallel",
+    "projects:test": "./node_modules/.bin/lerna run test --parallel",
     "projects:lint:fix": "./node_modules/.bin/lerna run lint:fix --parallel",
     "projects:lint": "./node_modules/.bin/lerna run lint --parallel"
   },

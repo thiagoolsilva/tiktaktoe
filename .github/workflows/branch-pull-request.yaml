@@ -27,7 +27,7 @@ jobs:
       - name: Run unit testing
         uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: projects:cli:test
+          cmd: projects:test
 
       - name: Run eslint
         uses: borales/actions-yarn@v2.3.0
