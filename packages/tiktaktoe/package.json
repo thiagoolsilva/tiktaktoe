@@ -1,7 +1,7 @@
 {
   "name": "@tiktaktoe/core",
   "private": true,
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "> TODO: description",
   "author": "Thiago Lopes da Silva <thiagoolsilva@gmail.com>",
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe/tree/main/packages/tiktaktoe#readme",
@@ -35,11 +35,11 @@
     "tsyringe": "4.6.0"
   },
   "devDependencies": {
+    "eslint": "^8.1.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
     "jest": "27.2.0",
     "rimraf": "^3.0.2",
     "ts-jest": "27.0.5",
-    "ts-node": "^10.3.0",
-    "eslint": "^8.1.0",
-    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0"
+    "ts-node": "^10.3.0"
   }
 }
