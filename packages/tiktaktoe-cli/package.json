@@ -21,7 +21,9 @@
   "scripts": {
     "build": "tsc",
     "clean": "./node_modules/.bin/rimraf dist node_modules",
-    "start": "FORCE_COLOR=1 ts-node src/index.ts"
+    "start": "FORCE_COLOR=1 ts-node src/index.ts",
+    "lint": "./node_modules/.bin/eslint --quiet --ext .ts .",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ext .ts ."
   },
   "bugs": {
     "url": "https://github.com/thiagoolsilva/tiktaktoe/issues"
@@ -35,6 +37,8 @@
     "@types/readline-sync": "1.4.3",
     "readline-sync": "1.4.10",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.3.0"
+    "ts-node": "^10.3.0",
+    "eslint": "^8.1.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0"
   }
 }

@@ -75,7 +75,7 @@ export function createPlayGameUCFactory(): PlayGameUCInterface {
     );
 
     return playGameUC;
-};
+}
 
 export function createResetGameUCFactory(): ResetGameUCInterface {
     const coreGameplay = CoreGamePlay.getInstance().getGamePlayCore();

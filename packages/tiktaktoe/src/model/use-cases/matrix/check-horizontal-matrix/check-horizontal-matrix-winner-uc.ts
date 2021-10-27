@@ -15,8 +15,8 @@
  */
 
 import { Logging } from '../../../logging/log.interface';
-import { delay, inject, injectable } from 'tsyringe';
 import { TikTakToeWinner } from '../../../type/game-types';
+import { delay, inject, injectable } from 'tsyringe';
 import { GameUtil } from '../../../util/game-util';
 import { BaseUseCaseInterface } from '../../base-uc.interface';
 import { Log } from '../../../logging/log';
@@ -31,7 +31,7 @@ export class CheckHorizontalMatrixWinner implements BaseUseCaseInterface<TikTakT
       const horizontalSumScore = data[count].reduce((previous, currentValue) => {
         return previous + currentValue;
       });
-      let winner = GameUtil.getWinner(horizontalSumScore);
+      const winner = GameUtil.getWinner(horizontalSumScore);
       this.logWrapper.log(`horizontalSumScore: ${horizontalSumScore}}, winnerObject: ${JSON.stringify(winner, null, 2)}, winner: ${JSON.stringify(winner.player)}`);
 
       if (winner.player) {

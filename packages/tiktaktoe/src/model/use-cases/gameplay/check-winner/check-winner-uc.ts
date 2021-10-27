@@ -37,8 +37,8 @@ export class CheckWinnerUC implements BaseUseCaseInterface<TikTakToeWinner> {
   }
 
   public execute(data: number[][]): TikTakToeWinner {
-    for (let matrixUC of this.matrixUC) {
-      let result = matrixUC.execute(data);
+    for (const matrixUC of this.matrixUC) {
+      const result = matrixUC.execute(data);
       if (result.player) {
         return result;
       }

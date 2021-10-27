@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+yarn projects:lint:fix
 npx ts-node scripts/src/check-copyright/index.ts
