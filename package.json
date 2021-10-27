@@ -18,7 +18,8 @@
     "check-copyright": "./node_modules/.bin/ts-node scripts/src/check-copyright/index.ts",
     "projects:build": "./node_modules/.bin/lerna run build",
     "projects:bootstrap": "./node_modules/.bin/lerna bootstrap",
-    "projects:cli:start": "./node_modules/.bin/lerna run start --scope @tiktaktoe/ui"
+    "projects:cli:start": "./node_modules/.bin/lerna run start --scope @tiktaktoe/ui",
+    "projects:cli:test": "./node_modules/.bin/lerna run test --parallel"
   },
   "repository": {
     "type": "git",

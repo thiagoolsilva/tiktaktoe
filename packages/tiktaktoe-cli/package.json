@@ -1,7 +1,7 @@
 {
   "name": "@tiktaktoe/ui",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "TikTakToe-CLI",
   "author": "Thiago Lopes da Silva <<thiagoolsilva@gmail.com>>",
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe/tree/main/packages/tiktaktoe-cli#readme",
@@ -21,13 +21,14 @@
   "scripts": {
     "build": "tsc",
     "clean": "./node_modules/.bin/rimraf dist node_modules",
-    "start": "ts-node src/index.ts"
+    "start": "FORCE_COLOR=1 ts-node src/index.ts"
   },
   "bugs": {
     "url": "https://github.com/thiagoolsilva/tiktaktoe/issues"
   },
   "dependencies": {
-    "@tiktaktoe/core": "^1.0.0",
+    "@tiktaktoe/core": "^1.0.0-beta.1",
+    "chalk": "4.1.2",
     "table": "6.7.2"
   },
   "devDependencies": {
