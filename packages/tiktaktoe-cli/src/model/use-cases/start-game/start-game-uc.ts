@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "data/table-repository/table-repository.interface";
-import { StartGameAdapterInterface } from "model/adapter/start-game-adapter/start-game-adapter.interface";
+import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
+import { StartGameAdapterInterface } from "../../adapter/start-game-adapter/start-game-adapter.interface";
 import { StartGameUCInterface } from "./start-game-uc.interface";
 
 

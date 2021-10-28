@@ -103,3 +103,7 @@ packages/*/dist
 
 # TernJS port file
 .tern-port
+
+# compiled library code
+__bundle
+packages/**/*.d.ts

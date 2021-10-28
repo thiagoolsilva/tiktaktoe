@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "data/table-repository/table-repository.interface";
-import { GamePlayInterfaceAdapter } from "model/adapter/game-play-adapter/game-play-adapter.interface";
+import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
+import { GamePlayInterfaceAdapter } from "../../adapter/game-play-adapter/game-play-adapter.interface";
 import { TikTakToeTable } from "./business-object/tiktaktoe-table";
 import { PlayGameParserInterface } from "./parser/play-game-parser.interface";
 import { PlayGameUCInterface } from "./play-game-uc.interface";

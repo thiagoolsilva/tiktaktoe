@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "data/table-repository/persistent-object/table-entity";
+import { TableEntity } from "../../../../data/table-repository/persistent-object/table-entity";
 import { TikTakToeTable } from "../business-object/tiktaktoe-table";
 
 

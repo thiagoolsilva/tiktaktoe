@@ -1,5 +1,8 @@
 {
   "copyright": "Copyright (c) 2021  Thiago Lopes da Silva",
+  "excludeFilePattern": [
+    ".d.ts"
+  ],
   "excludeFromSearch": [
     "node_modules",
     "dist",

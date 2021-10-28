@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { PlayerCli } from "model/business-object/player-cli";
+import { PlayerCli } from "../../../../model/business-object/player-cli";
 
 export class PlayerWinnerCli {
     playerCli?: PlayerCli;

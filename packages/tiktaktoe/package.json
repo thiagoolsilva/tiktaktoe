@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "./node_modules/.bin/rimraf dist node_modules",
+    "clean": "./node_modules/.bin/rimraf dist node_modules coverage",
     "test": "./node_modules/.bin/jest ",
     "test:specific-tests": "./node_modules/.bin/jest --findRelatedTests ",
     "lint": "./node_modules/.bin/eslint --quiet --ext .ts .",
