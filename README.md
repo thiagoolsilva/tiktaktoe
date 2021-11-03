@@ -21,7 +21,7 @@
 
 ## Why Clean Architecture?
 
-> Warning: This section was not written by me since I got it from ([clean-architecture-example](https://github.com/mattia-battiston/clean-architecture-example/blob/master/README.md#the-example-domain)) github that explain in details about the concept of clean architecture. Please you should give it a try and go to it and read the article/code. Thanks ([mattia-battiston](https://github.com/mattia-battiston)) to share your content to the community. 
+> Warning: This section wasn't wrote by me since I got it from ([clean-architecture-example](https://github.com/mattia-battiston/clean-architecture-example/blob/master/README.md#the-example-domain)) github that explain in details about the concept of clean architecture. Please you should give it a try and go to it and read the article/code. Thanks ([mattia-battiston](https://github.com/mattia-battiston)) to share your content to the community. 
 
 > The center of your application is not the database. Nor is it one or more of the frameworks you may be using. **The center of your application is the use cases of your application**  -  _Unclebob_ ([source](https://blog.8thlight.com/uncle-bob/2012/05/15/NODB.html "NODB"))
 
