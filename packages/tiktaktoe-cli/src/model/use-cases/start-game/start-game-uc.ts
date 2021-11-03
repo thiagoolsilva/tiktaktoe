@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
-import { StartGameAdapterInterface } from "../../adapter/start-game-adapter/start-game-adapter.interface";
-import { StartGameUCInterface } from "./start-game-uc.interface";
-
+import { TableRepositoryInterface } from '../../../data/table-repository/table-repository.interface';
+import { StartGameAdapterInterface } from '../../adapter/start-game-adapter/start-game-adapter.interface';
+import { StartGameUCInterface } from './start-game-uc.interface';
 
 export class StartGameUC implements StartGameUCInterface {
+  public constructor(private readonly startGameAdapter: StartGameAdapterInterface,
+    private readonly tableRepository: TableRepositoryInterface) { }
 
-    public constructor(private readonly startGameAdapter: StartGameAdapterInterface,
-        private readonly tableRepository: TableRepositoryInterface,) { }
-
-    public execute(): void {
-        this.startGameAdapter.startGame();
-        this.tableRepository.resetGameTable();
-    }
-
+  public execute(): void {
+    this.startGameAdapter.startGame();
+    this.tableRepository.resetGameTable();
+  }
 }

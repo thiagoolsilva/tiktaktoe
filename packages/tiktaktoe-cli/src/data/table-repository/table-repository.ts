@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,20 +15,21 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "./persistent-object/table-entity";
-import { LocalTableRepositoryInterface, TableRepositoryInterface } from "./table-repository.interface";
+import { TableEntity } from './persistent-object/table-entity';
+import { LocalTableRepositoryInterface, TableRepositoryInterface } from './table-repository.interface';
 
 export class TableRepository implements TableRepositoryInterface {
+  public constructor(private readonly localSource: LocalTableRepositoryInterface) { }
 
-    public constructor(private readonly localSource: LocalTableRepositoryInterface) { }
+  public save(rolePosition: TableEntity): string {
+    return this.localSource.save(rolePosition);
+  }
 
-    public save(rolePosition: TableEntity): string {
-        return this.localSource.save(rolePosition);
-    }
-    public getGameTable(): string {
-        return this.localSource.getGameTable();
-    }
-    public resetGameTable(): void {
-        this.localSource.resetGameTable();
-    }
+  public getGameTable(): string {
+    return this.localSource.getGameTable();
+  }
+
+  public resetGameTable(): void {
+    this.localSource.resetGameTable();
+  }
 }

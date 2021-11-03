@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
-import { ResetGameAdapterInterface } from "../../adapter/reset-game-adapter/reset-game-adapter.interface";
-import { ResetGameUCInterface } from "./reset-game-uc.interface";
-
+import { TableRepositoryInterface } from '../../../data/table-repository/table-repository.interface';
+import { ResetGameAdapterInterface } from '../../adapter/reset-game-adapter/reset-game-adapter.interface';
+import { ResetGameUCInterface } from './reset-game-uc.interface';
 
 export class ResetGameUC implements ResetGameUCInterface {
-
-    public constructor(private readonly resetGameAdapter: ResetGameAdapterInterface,
+  public constructor(private readonly resetGameAdapter: ResetGameAdapterInterface,
         private readonly tableRepository: TableRepositoryInterface) { }
 
-    public resetGame(): void {
-        this.resetGameAdapter.resetGame();
-        this.tableRepository.resetGameTable();
-    }
+  public resetGame(): void {
+    this.resetGameAdapter.resetGame();
+    this.tableRepository.resetGameTable();
+  }
 }

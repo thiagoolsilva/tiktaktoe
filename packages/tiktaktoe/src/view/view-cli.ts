@@ -18,6 +18,7 @@ import { Player } from '../cross-cutting';
 import { PresentationFactory } from '../presentation/index';
 
 export class ViewCLI {
+  // eslint-disable-next-line class-methods-use-this
   main() {
     const handler = new PresentationFactory().createGame();
     console.log(handler.startGame());
@@ -42,4 +43,4 @@ export class ViewCLI {
   }
 }
 
-void new ViewCLI().main();
+new ViewCLI().main();

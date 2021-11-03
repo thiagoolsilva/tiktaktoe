@@ -15,54 +15,56 @@
  */
 
 import chalk from 'chalk';
-import readlineSync from "readline-sync";
-import { PlayerCli } from "../model/business-object/player-cli";
-import { GameplayParams } from "./view-object/gameplay-params";
-import { PlayPositions } from "../cross-cutting/types/constants";
+import readlineSync from 'readline-sync';
+import { PlayerCli } from '../model/business-object/player-cli';
+import { GameplayParams } from './view-object/gameplay-params';
+import { PlayPositions } from '../cross-cutting/types/constants';
 
+// eslint-disable-next-line import/prefer-default-export
 export class GamePlayCli {
+  private currentPlayer: PlayerCli = PlayerCli.firstPlayer;
 
-    private currentPlayer: PlayerCli = PlayerCli.firstPlayer;
+  public constructor(
+    private readonly gameplayParams: GameplayParams,
+  ) {
+    this.gameplayParams.startGameUCInterface.execute();
+  }
 
-    public constructor(
-        private readonly gameplayParams: GameplayParams
-    ) {
-        this.gameplayParams.startGameUCInterface.execute();
-    }
+  public main(): void {
+    const matrixSize = 9;
+    const invalidChooseOptionIndex = -1;
+    const playRoleOptions = [...Array(matrixSize).keys()].map((value) => value + 1)
+      .map((value) => value.toString());
+    const gameplayLifeCycle = true;
+    try {
+      while (gameplayLifeCycle) {
+        const valueInPosition = this.currentPlayer === PlayerCli.firstPlayer
+          ? PlayPositions.POSITION_2 : PlayPositions.POSITION_1;
+        const currentGameStatus = this.gameplayParams.statusGameUCInterface.getCurrentGameStatus();
+        readlineSync.keyInPause(`Hi [${this.currentPlayer}]. Your key is [${valueInPosition}] \n${currentGameStatus}\n`);
 
-    public main(): void {
-        const matrixSize = 9;
-        const invalidChooseOptionIndex = -1;
-        const playRoleOptions = [...Array(matrixSize).keys()].map(value => value + 1).map(value => value.toString());
-        const gameplayLifeCycle = true;
-        try {
-            while (gameplayLifeCycle) {
-                const valueInPosition = this.currentPlayer == PlayerCli.firstPlayer ? PlayPositions.POSITION_2 : PlayPositions.POSITION_1;
-                const currentGameStatus = this.gameplayParams.statusGameUCInterface.getCurrentGameStatus();
-                readlineSync.keyInPause(`Hi [${this.currentPlayer}]. Your key is [${valueInPosition}] \n${currentGameStatus}\n`)
+        const playChooseIndex = readlineSync.keyInSelect(playRoleOptions, 'Please choose one option.');
+        if (Number(playChooseIndex) !== invalidChooseOptionIndex) {
+          const userOption = Number(playRoleOptions[playChooseIndex]);
 
-                const playChooseIndex = readlineSync.keyInSelect(playRoleOptions, 'Please choose one option.');
-                if (Number(playChooseIndex) !== invalidChooseOptionIndex) {
-                    const userOption = Number(playRoleOptions[playChooseIndex]);
+          this.gameplayParams.playGameUCInterface.execute({
+            playerCli: this.currentPlayer,
+            position: userOption,
+            valueInPosition,
+          });
 
-                    this.gameplayParams.playGameUCInterface.execute({
-                        playerCli: this.currentPlayer,
-                        position: userOption,
-                        valueInPosition
-                    });
+          const checkWinner = this.gameplayParams.getWinnerUCInterface.getWinner();
+          if (checkWinner?.playerCli) {
+            console.log(chalk.blueBright(`The winner is ${this.currentPlayer}`));
+            break;
+          }
 
-                    const checkWinner = this.gameplayParams.getWinnerUCInterface.getWinner();
-                    if (checkWinner?.playerCli) {
-                        console.log(chalk.blueBright(`The winner is ${this.currentPlayer}`));
-                        break;
-                    }
-
-                    this.currentPlayer = this.currentPlayer === PlayerCli.firstPlayer ? PlayerCli.secondPlayer : PlayerCli.firstPlayer;
-                }
-            }
+          this.currentPlayer = this.currentPlayer === PlayerCli.firstPlayer
+            ? PlayerCli.secondPlayer : PlayerCli.firstPlayer;
         }
-        catch (error:any) {
-            console.log(chalk.redBright(`The position was already chosen.`));
-        }
+      }
+    } catch (error: any) {
+      console.log(chalk.redBright('The position was already chosenAA.'));
     }
+  }
 }

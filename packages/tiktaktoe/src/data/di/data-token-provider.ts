@@ -19,12 +19,11 @@ import { GameRepository, LocalSourceGameRepository } from '..';
 
 export const DataTokenLocalGameRepository = 'DataTokenLocalGameRepository';
 container.register(DataTokenLocalGameRepository, {
-  useFactory: instanceCachingFactory<LocalSourceGameRepository>(c =>
-    c.resolve(LocalSourceGameRepository),
-  ),
+  // eslint-disable-next-line max-len
+  useFactory: instanceCachingFactory<LocalSourceGameRepository>((c) => c.resolve(LocalSourceGameRepository)),
 });
 
 export const DataTokenGameRepository = 'DataTokenGameRepository';
 container.register(DataTokenGameRepository, {
-  useFactory: instanceCachingFactory<GameRepository>(c => c.resolve(GameRepository)),
+  useFactory: instanceCachingFactory<GameRepository>((c) => c.resolve(GameRepository)),
 });

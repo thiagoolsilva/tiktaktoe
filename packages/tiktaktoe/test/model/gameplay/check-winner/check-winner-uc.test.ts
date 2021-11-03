@@ -17,6 +17,16 @@
 import { Player } from '../../../../src/cross-cutting';
 import { BaseUseCaseInterface, CheckWinnerUC, TikTakToeWinner } from '../../../../src/model';
 
+const matrixWinnerUC = (player?: TikTakToeWinner): BaseUseCaseInterface<TikTakToeWinner> => ({
+  execute: jest.fn().mockReturnValue(player),
+});
+
+const fakeTikTakToeData = [
+  Array(3).fill(Player.firstPlayer),
+  Array(3).fill(Player.firstPlayer),
+  Array(3).fill(Player.firstPlayer),
+];
+
 test('Check-Winner: Expected to checkDiagonalMatrixWinnerUC assign first player to win the game. ', () => {
   const realCheckWinnerUC = new CheckWinnerUC(
     matrixWinnerUC({ player: Player.firstPlayer }),
@@ -57,15 +67,3 @@ test('Check-Winner: Expected to no one player win the game. ', () => {
   const expectedWinner = realCheckWinnerUC.execute(fakeTikTakToeData);
   expect(expectedWinner.player).toBeUndefined();
 });
-
-const matrixWinnerUC = (player?: TikTakToeWinner): BaseUseCaseInterface<TikTakToeWinner> => {
-  return {
-    execute: jest.fn().mockReturnValue(player),
-  };
-};
-
-const fakeTikTakToeData = [
-  Array(3).fill(Player.firstPlayer),
-  Array(3).fill(Player.firstPlayer),
-  Array(3).fill(Player.firstPlayer),
-];

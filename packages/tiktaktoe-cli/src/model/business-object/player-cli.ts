@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable import/prefer-default-export */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,8 +16,7 @@
  * limitations under the License.
  */
 
-
 export enum PlayerCli {
-    firstPlayer = "firstPlayer",
-    secondPlayer = "secondPlayer"
+    firstPlayer = 'firstPlayer',
+    secondPlayer = 'secondPlayer'
 }

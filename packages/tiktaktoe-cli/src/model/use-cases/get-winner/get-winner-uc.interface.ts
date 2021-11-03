@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { PlayerWinnerCli } from "./business-object/player-winner-cli";
+import { PlayerWinnerCli } from './business-object/player-winner-cli';
 
 export interface GetWinnerUCInterface {
     getWinner(): PlayerWinnerCli | undefined;

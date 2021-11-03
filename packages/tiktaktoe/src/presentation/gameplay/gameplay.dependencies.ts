@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { injectable, inject, delay } from 'tsyringe';
 import {
   BaseUseCaseInterface,
   ModelTokenCheckWinnerUC,
@@ -28,7 +29,6 @@ import {
   TikTakToeWinner,
 } from '../../model/index';
 
-import { injectable, inject, delay } from 'tsyringe';
 import { Logging } from '../../model/logging/log.interface';
 import { GetGameInterface } from '../../model/use-cases/get-game-uc.interface';
 import { Log } from '../../model/logging/log';

@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "../../../../data/table-repository/persistent-object/table-entity";
-import { TikTakToeTable } from "../business-object/tiktaktoe-table";
-
+import { TableEntity } from '../../../../data/table-repository/persistent-object/table-entity';
+import { TikTakToeTable } from '../business-object/tiktaktoe-table';
 
 export interface PlayGameParserInterface {
     showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity;

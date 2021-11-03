@@ -26,32 +26,32 @@ export class CheckDiagonalMatrixWinnerUC implements BaseUseCaseInterface<TikTakT
   constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) {}
 
   public execute(data: number[][]): TikTakToeWinner {
-    this.logWrapper.log(`--------->Executing CheckDiagonalMatrixWinnerUC<----------`);
+    this.logWrapper.log('--------->Executing CheckDiagonalMatrixWinnerUC<----------');
     let diagonalWinner = this.getPrincipalDiagonalWinner(data);
     if (diagonalWinner.player) {
       return diagonalWinner;
     }
-    
+
     diagonalWinner = this.getInverseDiagonalWinner(data);
     if (diagonalWinner.player) {
       return diagonalWinner;
     }
-    
-    this.logWrapper.log(`--------->End CheckDiagonalMatrixWinnerUC<----------\n`);
+
+    this.logWrapper.log('--------->End CheckDiagonalMatrixWinnerUC<----------\n');
     return {};
   }
 
   private getPrincipalDiagonalWinner(data: number[][]): TikTakToeWinner {
     let result = 0;
     let subIndex = data.length;
-    for (let count = 0; count < data.length; count++) {
+    for (let count = 0; count < data.length; count += 1) {
       result += data[count][subIndex - 1];
       this.logWrapper.log(
         `principal count, ${count}, subIndex, ${subIndex}, value, ${
           data[count][subIndex - 1]
         },result, ${result}`,
       );
-      subIndex--;
+      subIndex -= 1;
     }
 
     return GameUtil.getWinner(result);
@@ -59,7 +59,7 @@ export class CheckDiagonalMatrixWinnerUC implements BaseUseCaseInterface<TikTakT
 
   private getInverseDiagonalWinner(data: number[][]): TikTakToeWinner {
     let result = 0;
-    for (let count = 0; count < data.length; count++) {
+    for (let count = 0; count < data.length; count += 1) {
       result += data[count][count];
       this.logWrapper.log(
         `inverse [index][index], ${count}, value, ${data[count][count]}, result, ${result}`,

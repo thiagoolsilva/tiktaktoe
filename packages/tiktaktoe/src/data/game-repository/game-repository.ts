@@ -35,6 +35,7 @@ export class GameRepository implements GameRepositoryInterface {
   public gameStatus(): number[][] {
     return this.localSource.gameStatus();
   }
+
   public insertPlayRound(xPos: number, yPos: number, value: number): number[][] {
     return this.localSource.insertPlayRound(xPos, yPos, value);
   }

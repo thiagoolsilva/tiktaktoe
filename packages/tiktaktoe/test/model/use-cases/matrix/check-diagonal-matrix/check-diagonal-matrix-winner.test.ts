@@ -18,6 +18,14 @@ import { CheckDiagonalMatrixWinnerUC } from '../../../../../src/model/use-cases/
 import { Player } from '../../../../../src/cross-cutting/index';
 import { TikTakToeWinner } from '../../../../../src/model';
 
+const createRealObject = (data: number[][]): TikTakToeWinner => {
+  const realObject = new CheckDiagonalMatrixWinnerUC({
+    log: jest.fn(),
+  });
+
+  return realObject.execute(data);
+};
+
 test('Principal Diagonal: second user Should win the game.', () => {
   const principalDiagonal: number[][] = [
     [Player.secondPlayer, Player.notPlayed, Player.notPlayed],
@@ -83,11 +91,3 @@ test('Inverse Diagonal: No user Should not win the game when exists two players 
   const result = createRealObject(principalDiagonal);
   expect(result.player).toBeUndefined();
 });
-
-const createRealObject = (data: number[][]): TikTakToeWinner => {
-  const realObject = new CheckDiagonalMatrixWinnerUC({
-    log: jest.fn(),
-  });
-
-  return realObject.execute(data);
-};

@@ -21,6 +21,12 @@ import {
 } from '../../../../../src/cross-cutting';
 import { PlayRoundValidation } from '../../../../../src/model/use-cases/gameplay/play-round/validation/play-round-validation';
 
+const createFakeTikTakToeData = [
+  Array(MatrixSquareLength).fill(Player.notPlayed),
+  Array(MatrixSquareLength).fill(Player.firstPlayer),
+  Array(MatrixSquareLength).fill(Player.secondPlayer),
+];
+
 test('RealPlayRoundValidation: It should be possible to play round on provided position.', () => {
   const realPlayRoundValidation = new PlayRoundValidation();
 
@@ -34,17 +40,10 @@ test('RealPlayRoundValidation: It should be possible to play round on provided p
 test('RealPlayRoundValidation: It should not be possible to play round on provided position.', () => {
   const realPlayRoundValidation = new PlayRoundValidation();
 
-  expect(() =>
-    realPlayRoundValidation.checkIfPositionIsAlreadyFilledOrThrow(createFakeTikTakToeData, {
+  expect(() => realPlayRoundValidation
+    .checkIfPositionIsAlreadyFilledOrThrow(createFakeTikTakToeData, {
       player: Player.firstPlayer,
       xPosition: 1,
       yPosition: 1,
-    }),
-  ).toThrow(PositionAlreadyUsedException);
+    })).toThrow(PositionAlreadyUsedException);
 });
-
-const createFakeTikTakToeData = [
-  Array(MatrixSquareLength).fill(Player.notPlayed),
-  Array(MatrixSquareLength).fill(Player.firstPlayer),
-  Array(MatrixSquareLength).fill(Player.secondPlayer),
-];

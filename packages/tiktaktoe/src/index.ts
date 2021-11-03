@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-export { Player, PositionAlreadyUsedException } from "./cross-cutting/index";
-export { PresentationFactory, GamePlay } from "./presentation/index";
-export { TikTakToePlay, TikTakToeWinner } from "./model/type/game-types"
-export { GameplayInterface } from "./presentation/gameplay.interface";
+export { Player, PositionAlreadyUsedException } from './cross-cutting/index';
+export { PresentationFactory, GamePlay } from './presentation/index';
+export { TikTakToePlay, TikTakToeWinner } from './model/type/game-types';
+export { GameplayInterface } from './presentation/gameplay.interface';

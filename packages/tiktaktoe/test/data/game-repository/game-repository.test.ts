@@ -17,6 +17,12 @@
 import { Player } from '../../../src/cross-cutting';
 import { GameRepository, LocalSourceGameRepositoryInterface } from '../../../src/data';
 
+const localDataSource = (): LocalSourceGameRepositoryInterface => ({
+  gameStatus: jest.fn(),
+  initGame: jest.fn(),
+  insertPlayRound: jest.fn(),
+});
+
 test('Game-repository: The game status method should be called once', () => {
   const mockLocalDataSource = localDataSource();
   const realGameRepository = new GameRepository(mockLocalDataSource);
@@ -41,11 +47,3 @@ test('Game-repository: The insert play round method should be called once', () =
 
   expect(mockLocalDataSource.insertPlayRound).toBeCalledTimes(1);
 });
-
-const localDataSource = (): LocalSourceGameRepositoryInterface => {
-  return {
-    gameStatus: jest.fn(),
-    initGame: jest.fn(),
-    insertPlayRound: jest.fn(),
-  };
-};

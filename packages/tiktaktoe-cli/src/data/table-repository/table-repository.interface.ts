@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "./persistent-object/table-entity";
+import { TableEntity } from './persistent-object/table-entity';
 
 export interface TableRepositoryInterface {
     save(rolePosition: TableEntity): string;
