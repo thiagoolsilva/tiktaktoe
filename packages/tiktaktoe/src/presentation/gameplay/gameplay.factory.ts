@@ -19,6 +19,7 @@ import { container } from 'tsyringe';
 import { GamePlay } from './gameplay';
 
 export class PresentationFactory {
+  // eslint-disable-next-line class-methods-use-this
   public createGame(): GamePlay {
     return container.resolve(GamePlay);
   }

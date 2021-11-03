@@ -26,21 +26,21 @@ export class CheckVerticalMatrixWinner implements BaseUseCaseInterface<TikTakToe
   public constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) { }
 
   public execute(data: number[][]): TikTakToeWinner {
-    this.logWrapper.log(`--------->Executing CheckVerticalMatrixWinner<----------`);
-    for (let count = 0; count <= data.length; count++) {
+    this.logWrapper.log('--------->Executing CheckVerticalMatrixWinner<----------');
+    for (let count = 0; count <= data.length; count += 1) {
       const winner = this.getVerticalWinner(data, count);
       if (winner.player) {
         return winner;
       }
     }
-    this.logWrapper.log(`--------->End CheckVerticalMatrixWinner<----------\n`);
+    this.logWrapper.log('--------->End CheckVerticalMatrixWinner<----------\n');
 
     return {};
   }
 
   private getVerticalWinner(data: number[][], index: number): TikTakToeWinner {
     let result = 0;
-    for (let count = 0; count < data.length; count++) {
+    for (let count = 0; count < data.length; count += 1) {
       result += data[count][index];
       this.logWrapper.log(
         `vertical row, ${count}, column, ${index}, value, ${data[count][index]}, result, ${result}`,

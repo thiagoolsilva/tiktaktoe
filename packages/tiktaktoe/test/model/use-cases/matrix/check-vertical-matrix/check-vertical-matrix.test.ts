@@ -18,6 +18,14 @@ import { Player } from '../../../../../src/cross-cutting';
 import { TikTakToeWinner } from '../../../../../src/model';
 import { CheckVerticalMatrixWinner } from '../../../../../src/model/use-cases/matrix/check-vertical-matrix/check-vertical-matrix-winner-uc';
 
+const createRealObject = (data: number[][]): TikTakToeWinner => {
+  const realObject = new CheckVerticalMatrixWinner({
+    log: jest.fn(),
+  });
+
+  return realObject.execute(data);
+};
+
 test('Vertical: First player should win the game on first column.', () => {
   const horizontalData = [
     [Player.firstPlayer, Player.notPlayed, Player.notPlayed],
@@ -100,11 +108,3 @@ test('Vertical: No player should win the game when exists different player in Th
   const horizontalResult = createRealObject(horizontalData);
   expect(horizontalResult.player).toBeUndefined();
 });
-
-const createRealObject = (data: number[][]): TikTakToeWinner => {
-  const realObject = new CheckVerticalMatrixWinner({
-    log: jest.fn(),
-  });
-
-  return realObject.execute(data);
-};

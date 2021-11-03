@@ -15,7 +15,9 @@
  */
 
 export class TableEntity {
-    xPosition: number;
-    yPosition: number;
-    valueInPosition: string;
+  xPosition: number;
+
+  yPosition: number;
+
+  valueInPosition: string;
 }

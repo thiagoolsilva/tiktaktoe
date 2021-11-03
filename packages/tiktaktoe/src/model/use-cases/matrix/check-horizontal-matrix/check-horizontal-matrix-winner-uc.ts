@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
+import { delay, inject, injectable } from 'tsyringe';
 import { Logging } from '../../../logging/log.interface';
 import { TikTakToeWinner } from '../../../type/game-types';
-import { delay, inject, injectable } from 'tsyringe';
 import { GameUtil } from '../../../util/game-util';
 import { BaseUseCaseInterface } from '../../base-uc.interface';
 import { Log } from '../../../logging/log';
 
 @injectable()
 export class CheckHorizontalMatrixWinner implements BaseUseCaseInterface<TikTakToeWinner> {
-  public constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) {}
+  public constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) { }
 
   public execute(data: number[][]): TikTakToeWinner {
-    this.logWrapper.log(`--------->Executing CheckHorizontalMatrixWinner<----------`);
-    for (let count = 0; count <= data.length - 1; count++) {
-      const horizontalSumScore = data[count].reduce((previous, currentValue) => {
-        return previous + currentValue;
-      });
+    this.logWrapper.log('--------->Executing CheckHorizontalMatrixWinner<----------');
+    for (let count = 0; count <= data.length - 1; count += 1) {
+      const horizontalSumScore = data[count]
+        .reduce((previous, currentValue) => previous + currentValue);
       const winner = GameUtil.getWinner(horizontalSumScore);
       this.logWrapper.log(`horizontalSumScore: ${horizontalSumScore}}, winnerObject: ${JSON.stringify(winner, null, 2)}, winner: ${JSON.stringify(winner.player)}`);
 
@@ -38,7 +37,7 @@ export class CheckHorizontalMatrixWinner implements BaseUseCaseInterface<TikTakT
         return winner;
       }
     }
-    this.logWrapper.log(`--------->End CheckHorizontalMatrixWinner<----------\n`);
+    this.logWrapper.log('--------->End CheckHorizontalMatrixWinner<----------\n');
 
     return {};
   }

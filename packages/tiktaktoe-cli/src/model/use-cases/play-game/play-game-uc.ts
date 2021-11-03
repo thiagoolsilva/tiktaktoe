@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
-import { GamePlayInterfaceAdapter } from "../../adapter/game-play-adapter/game-play-adapter.interface";
-import { TikTakToeTable } from "./business-object/tiktaktoe-table";
-import { PlayGameParserInterface } from "./parser/play-game-parser.interface";
-import { PlayGameUCInterface } from "./play-game-uc.interface";
+import { TableRepositoryInterface } from '../../../data/table-repository/table-repository.interface';
+import { GamePlayInterfaceAdapter } from '../../adapter/game-play-adapter/game-play-adapter.interface';
+import { TikTakToeTable } from './business-object/tiktaktoe-table';
+import { PlayGameParserInterface } from './parser/play-game-parser.interface';
+import { PlayGameUCInterface } from './play-game-uc.interface';
 
 export class PlayGameUC implements PlayGameUCInterface {
+  public constructor(
+    private readonly playRoleAdapter: GamePlayInterfaceAdapter,
+    private readonly tableRepository: TableRepositoryInterface,
+    private readonly parser: PlayGameParserInterface,
+  ) { }
 
-    public constructor(
-        private readonly playRoleAdapter: GamePlayInterfaceAdapter,
-        private readonly tableRepository: TableRepositoryInterface,
-        private readonly parser: PlayGameParserInterface) { }
+  public execute(tableRole: TikTakToeTable): string {
+    const { position, playerCli } = tableRole;
 
-    public execute(tableRole: TikTakToeTable): string {
-        const { position, playerCli } = tableRole;
+    this.playRoleAdapter.play(position, playerCli);
 
-        this.playRoleAdapter.play(position, playerCli);
-
-        const showTableEntity = this.parser.showTableBOToEntity(tableRole);
-        return this.tableRepository.save(showTableEntity);
-    }
-
+    const showTableEntity = this.parser.showTableBOToEntity(tableRole);
+    return this.tableRepository.save(showTableEntity);
+  }
 }

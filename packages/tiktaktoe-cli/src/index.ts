@@ -15,21 +15,21 @@
  */
 
 import {
-    createPlayGameUCFactory,
-    createResetGameUCFactory,
-    createStartGameUCFactory,
-    createStatusGameUCFactory,
-    createWinnerGameUCFactory
-} from "./model/factory/game-factory";
-import { GamePlayCli } from "./view/gameplay"
+  createPlayGameUCFactory,
+  createResetGameUCFactory,
+  createStartGameUCFactory,
+  createStatusGameUCFactory,
+  createWinnerGameUCFactory,
+} from './model/factory/game-factory';
+import { GamePlayCli } from './view/gameplay';
 
 // TBD: Use Dependency injection
-void new GamePlayCli(
-    {
-        playGameUCInterface: createPlayGameUCFactory(),
-        resetGameUCInterface: createResetGameUCFactory(),
-        startGameUCInterface: createStartGameUCFactory(),
-        statusGameUCInterface: createStatusGameUCFactory(),
-        getWinnerUCInterface: createWinnerGameUCFactory()
-    }
+new GamePlayCli(
+  {
+    playGameUCInterface: createPlayGameUCFactory(),
+    resetGameUCInterface: createResetGameUCFactory(),
+    startGameUCInterface: createStartGameUCFactory(),
+    statusGameUCInterface: createStatusGameUCFactory(),
+    getWinnerUCInterface: createWinnerGameUCFactory(),
+  },
 ).main();

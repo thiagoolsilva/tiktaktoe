@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { PlayerCli } from "../../business-object/player-cli";
+import { PlayerCli } from '../../business-object/player-cli';
 
 export interface GamePlayInterfaceAdapter {
     play(play: number, player: PlayerCli): void

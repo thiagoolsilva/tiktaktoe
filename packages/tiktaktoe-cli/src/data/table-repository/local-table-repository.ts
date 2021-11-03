@@ -14,30 +14,33 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "./persistent-object/table-entity";
-import { LocalTableRepositoryInterface } from "./table-repository.interface";
-import { table } from "table";
+import { table } from 'table';
+import { TableEntity } from './persistent-object/table-entity';
+import { LocalTableRepositoryInterface } from './table-repository.interface';
 
 export class LocalTableRepository implements LocalTableRepositoryInterface {
+  private readonly tableSize = 3;
 
-    private readonly tableSize = 3;
-    private readonly initialTableValue = "-";
-    private data: string[][] = [];
+  private readonly initialTableValue = '-';
 
-    public save(rolePosition: TableEntity): string {
-        const { xPosition, yPosition, valueInPosition } = rolePosition;
-        this.data[xPosition][yPosition] = valueInPosition;
+  private data: string[][] = [];
 
-        return this.getGameTable();
-    }
-    public getGameTable(): string {
-        return table(this.data);
-    }
-    public resetGameTable(): void {
-        this.data = [
-            Array(this.tableSize).fill(this.initialTableValue),
-            Array(this.tableSize).fill(this.initialTableValue),
-            Array(this.tableSize).fill(this.initialTableValue)
-        ];
-    }
+  public save(rolePosition: TableEntity): string {
+    const { xPosition, yPosition, valueInPosition } = rolePosition;
+    this.data[xPosition][yPosition] = valueInPosition;
+
+    return this.getGameTable();
+  }
+
+  public getGameTable(): string {
+    return table(this.data);
+  }
+
+  public resetGameTable(): void {
+    this.data = [
+      Array(this.tableSize).fill(this.initialTableValue),
+      Array(this.tableSize).fill(this.initialTableValue),
+      Array(this.tableSize).fill(this.initialTableValue),
+    ];
+  }
 }

@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import { TableRepositoryInterface } from "../../../data/table-repository/table-repository.interface";
-import { StatusGameUCInterface } from "./status-game-uc.interface";
+import { TableRepositoryInterface } from '../../../data/table-repository/table-repository.interface';
+import { StatusGameUCInterface } from './status-game-uc.interface';
 
 export class StatusGameUC implements StatusGameUCInterface {
+  public constructor(
+        private readonly tableRepository: TableRepositoryInterface,
+  ) { }
 
-    public constructor(
-        private readonly tableRepository: TableRepositoryInterface
-    ) { }
-
-    public getCurrentGameStatus(): string {
-        return this.tableRepository.getGameTable();
-    }
-
+  public getCurrentGameStatus(): string {
+    return this.tableRepository.getGameTable();
+  }
 }

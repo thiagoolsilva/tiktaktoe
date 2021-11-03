@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import { PlayerCli } from "../../../business-object/player-cli";
-
+import { PlayerCli } from '../../../business-object/player-cli';
 
 export class TikTakToeTable {
-    position: number;
-    valueInPosition: string;
-    playerCli: PlayerCli;
+  position: number;
+
+  valueInPosition: string;
+
+  playerCli: PlayerCli;
 }

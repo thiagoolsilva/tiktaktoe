@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,14 +15,13 @@
  * limitations under the License.
  */
 
-import { GameplayInterface } from "@tiktaktoe/core";
-import { StartGameAdapterInterface } from "./start-game-adapter.interface";
+import { GameplayInterface } from '@tiktaktoe/core';
+import { StartGameAdapterInterface } from './start-game-adapter.interface';
 
 export class StartGameAdapter implements StartGameAdapterInterface {
+  public constructor(private gamePlay: GameplayInterface) { }
 
-    public constructor(private gamePlay: GameplayInterface) { }
-
-    public startGame(): void {
-        this.gamePlay.startGame();
-    }
+  public startGame(): void {
+    this.gamePlay.startGame();
+  }
 }

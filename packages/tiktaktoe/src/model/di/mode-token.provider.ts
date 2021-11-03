@@ -15,7 +15,9 @@
  */
 
 import { container } from 'tsyringe';
-import { CheckWinnerUC, PlayRoundUC, ResetGameUseCase, StartGameUC } from '..';
+import {
+  CheckWinnerUC, PlayRoundUC, ResetGameUseCase, StartGameUC,
+} from '..';
 import { Log } from '../logging/log';
 import { GetGameStatusUC } from '../use-cases/gameplay/get-game-status/get-game-uc';
 

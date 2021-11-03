@@ -37,6 +37,7 @@ export class CheckWinnerUC implements BaseUseCaseInterface<TikTakToeWinner> {
   }
 
   public execute(data: number[][]): TikTakToeWinner {
+    // eslint-disable-next-line no-restricted-syntax
     for (const matrixUC of this.matrixUC) {
       const result = matrixUC.execute(data);
       if (result.player) {

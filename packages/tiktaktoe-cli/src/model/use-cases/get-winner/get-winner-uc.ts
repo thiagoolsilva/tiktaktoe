@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,17 +15,14 @@
  * limitations under the License.
  */
 
-import { GetWinnerAdapterInterface } from "../../adapter/get-winner-adapter/get-winner-adapter.interface";
-import { PlayerWinnerCli } from "./business-object/player-winner-cli";
-import { GetWinnerUCInterface } from "./get-winner-uc.interface";
-
+import { GetWinnerAdapterInterface } from '../../adapter/get-winner-adapter/get-winner-adapter.interface';
+import { PlayerWinnerCli } from './business-object/player-winner-cli';
+import { GetWinnerUCInterface } from './get-winner-uc.interface';
 
 export class GetWinnerUC implements GetWinnerUCInterface {
+  public constructor(private readonly getWinnerAdapterInterface: GetWinnerAdapterInterface) { }
 
-    public constructor(private readonly getWinnerAdapterInterface: GetWinnerAdapterInterface) { }
-
-    public getWinner(): PlayerWinnerCli | undefined {
-        return this.getWinnerAdapterInterface.getWinner();
-    }
-
+  public getWinner(): PlayerWinnerCli | undefined {
+    return this.getWinnerAdapterInterface.getWinner();
+  }
 }

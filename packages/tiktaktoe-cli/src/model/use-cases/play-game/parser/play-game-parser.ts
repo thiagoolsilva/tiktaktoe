@@ -14,49 +14,55 @@
  * limitations under the License.
  */
 
-import { TableEntity } from "../../../../data/table-repository/persistent-object/table-entity";
-import { TikTakToeTable } from "../business-object/tiktaktoe-table";
-import { PlayGameParserInterface } from "./play-game-parser.interface";
+import { TableEntity } from '../../../../data/table-repository/persistent-object/table-entity';
+import { TikTakToeTable } from '../business-object/tiktaktoe-table';
+import { PlayGameParserInterface } from './play-game-parser.interface';
 
 export class PlayGameParser implements PlayGameParserInterface {
-    public showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity {
-        const { position, valueInPosition } = tikTakToeTable;
-        const tableEntity: TableEntity = {
-            xPosition: 0,
-            yPosition: 0,
-            valueInPosition: valueInPosition
-        };
-        switch (position) {
-            case 2:
-                tableEntity.yPosition = 1;
-                break;
-            case 3:
-                tableEntity.yPosition = 2;
-                break;
-            case 4:
-                tableEntity.xPosition = 1;
-                break;
-            case 5:
-                tableEntity.xPosition = 1;
-                tableEntity.yPosition = 1;
-                break;
-            case 6:
-                tableEntity.xPosition = 1;
-                tableEntity.yPosition = 2;
-                break;
-            case 7:
-                tableEntity.xPosition = 2;
-                break;
-            case 8:
-                tableEntity.xPosition = 2;
-                tableEntity.yPosition = 1;
-                break;
-            case 9:
-                tableEntity.xPosition = 2;
-                tableEntity.yPosition = 2;
-                break;
-        }
-        return tableEntity;
+  // eslint-disable-next-line class-methods-use-this
+  public showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity {
+    const { position, valueInPosition } = tikTakToeTable;
+    const tableEntity: TableEntity = {
+      xPosition: 0,
+      yPosition: 0,
+      valueInPosition,
+    };
+    switch (position) {
+      case 1:
+        tableEntity.xPosition = 0;
+        tableEntity.yPosition = 0;
+        break;
+      case 2:
+        tableEntity.yPosition = 1;
+        break;
+      case 3:
+        tableEntity.yPosition = 2;
+        break;
+      case 4:
+        tableEntity.xPosition = 1;
+        break;
+      case 5:
+        tableEntity.xPosition = 1;
+        tableEntity.yPosition = 1;
+        break;
+      case 6:
+        tableEntity.xPosition = 1;
+        tableEntity.yPosition = 2;
+        break;
+      case 7:
+        tableEntity.xPosition = 2;
+        break;
+      case 8:
+        tableEntity.xPosition = 2;
+        tableEntity.yPosition = 1;
+        break;
+      case 9:
+        tableEntity.xPosition = 2;
+        tableEntity.yPosition = 2;
+        break;
+      default:
+        throw new Error('Invalid game position.');
     }
-
+    return tableEntity;
+  }
 }

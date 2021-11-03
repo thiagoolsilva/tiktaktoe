@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-
+// eslint-disable-next-line import/prefer-default-export
 export const PlayPositions = {
-    POSITION_2: "O",
-    POSITION_1: "X"
+  POSITION_2: 'O',
+  POSITION_1: 'X',
 } as const;

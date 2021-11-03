@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,14 +15,13 @@
  * limitations under the License.
  */
 
-import { GameplayInterface } from "@tiktaktoe/core";
-import { ResetGameAdapterInterface } from "./reset-game-adapter.interface";
+import { GameplayInterface } from '@tiktaktoe/core';
+import { ResetGameAdapterInterface } from './reset-game-adapter.interface';
 
 export class ResetGameAdapter implements ResetGameAdapterInterface {
+  public constructor(private gamePlay: GameplayInterface) { }
 
-    public constructor(private gamePlay: GameplayInterface) { }
-
-    public resetGame(): void {
-        this.gamePlay.resetGame();
-    }
+  public resetGame(): void {
+    this.gamePlay.resetGame();
+  }
 }

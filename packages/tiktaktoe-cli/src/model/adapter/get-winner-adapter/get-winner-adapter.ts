@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-function */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -14,26 +15,24 @@
  * limitations under the License.
  */
 
-import { GameplayInterface, Player } from "@tiktaktoe/core";
-import { PlayerCli } from "../../business-object/player-cli";
-import { PlayerWinnerCli } from "../../use-cases/get-winner/business-object/player-winner-cli";
-import { GetWinnerAdapterInterface } from "./get-winner-adapter.interface";
+import { GameplayInterface, Player } from '@tiktaktoe/core';
+import { PlayerCli } from '../../business-object/player-cli';
+import { PlayerWinnerCli } from '../../use-cases/get-winner/business-object/player-winner-cli';
+import { GetWinnerAdapterInterface } from './get-winner-adapter.interface';
 
 export class GetWinnerAdapter implements GetWinnerAdapterInterface {
+  public constructor(private gamePlay: GameplayInterface) { }
 
-    public constructor(private gamePlay: GameplayInterface) { }
+  public getWinner(): PlayerWinnerCli | undefined {
+    let winner: PlayerWinnerCli | undefined;
+    const { player } = this.gamePlay.getWinner();
 
-    public getWinner(): PlayerWinnerCli | undefined {
-        let winner: PlayerWinnerCli | undefined = undefined;
-        const { player } = this.gamePlay.getWinner();
-
-        if (player) {
-            winner = {
-                playerCli: player === Player.firstPlayer ? PlayerCli.firstPlayer : PlayerCli.secondPlayer
-            }
-        }
-
-        return winner;
+    if (player) {
+      winner = {
+        playerCli: player === Player.firstPlayer ? PlayerCli.firstPlayer : PlayerCli.secondPlayer,
+      };
     }
 
+    return winner;
+  }
 }

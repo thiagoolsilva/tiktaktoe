@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TikTakToeTable } from "./business-object/tiktaktoe-table";
+import { TikTakToeTable } from './business-object/tiktaktoe-table';
 
 export interface PlayGameUCInterface {
   execute(tableRole: TikTakToeTable): string;

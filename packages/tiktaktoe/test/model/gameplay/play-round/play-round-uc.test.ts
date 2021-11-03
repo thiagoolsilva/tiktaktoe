@@ -57,11 +57,9 @@ test('Play-round: It should not be possible to insert the game round.', () => {
   };
   const dependencies = new PlayRoundDependencyUC(new PlayRoundValidation(), mockGameRepository);
   const realPlayGroundUC = new PlayRoundUC(dependencies);
-  expect(() =>
-    realPlayGroundUC.execute({
-      player: Player.firstPlayer,
-      xPosition: 0,
-      yPosition: 0,
-    }),
-  ).toThrow(PositionAlreadyUsedException);
+  expect(() => realPlayGroundUC.execute({
+    player: Player.firstPlayer,
+    xPosition: 0,
+    yPosition: 0,
+  })).toThrow(PositionAlreadyUsedException);
 });
