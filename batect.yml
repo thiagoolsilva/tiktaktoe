@@ -1,0 +1,82 @@
+# code based in https://github.com/batect/node-bundle/blob/main/batect-bundle.yml
+containers:
+  node-build-env:
+    image: node:14.17.0
+    volumes:
+      - local: <{batect.project_directory}
+        container: /code
+        options: cached
+      - type: cache
+        name: node_modules
+        container: /code/node_modules
+      - type: cache
+        name: yarn_cache
+        container: /home/container-user/.cache/yarn
+    working_directory: /code
+    enable_init_process: true
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
+
+tasks:
+  #   Build
+  build:
+    group: Build
+    description: Install all dependencies into docker volume
+    run:
+      container: node-build-env
+      command: bash -c "yarn projects:build && yarn projects:build:webpack"
+  install:
+    group: Build
+    description: Build code
+    run:
+      container: node-build-env
+      command: bash -c "npm install && yarn projects:bootstrap"
+  clean:
+    group: Build
+    description: Clean project builds
+    run:
+      container: node-build-env
+      command: bash -c "yarn remove-bundle"
+
+  #   Test
+  unit-testing:
+    group: test
+    description: Run unit testing
+    run:
+      container: node-build-env
+      command: yarn projects:test
+
+  #   General
+  start-game:
+    group: general
+    description: Start local game tik tak toe
+    run:
+      container: node-build-env
+      command: yarn projects:cli:start
+
+  #   Quality
+  lint:
+    group: Quality
+    description: Run lint
+    run:
+      container: node-build-env
+      command: yarn projects:lint
+  lint-fix:
+    group: Quality
+    description: Run lint fix
+    run:
+      container: node-build-env
+      command: yarn projects:lint:fix
+  format-code:
+    group: Quality
+    description: Format code
+    run:
+      container: node-build-env
+      command: yarn code-formatter
+  audit:
+    group: Quality
+    description: Check library vulnerability
+    run:
+      container: node-build-env
+      command: yarn projects:audit

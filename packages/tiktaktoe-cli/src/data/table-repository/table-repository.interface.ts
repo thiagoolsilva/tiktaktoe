@@ -17,13 +17,13 @@
 import { TableEntity } from './persistent-object/table-entity';
 
 export interface TableRepositoryInterface {
-    save(rolePosition: TableEntity): string;
-    getGameTable(): string;
-    resetGameTable(): void;
+  save(rolePosition: TableEntity): string;
+  getGameTable(): string;
+  resetGameTable(): void;
 }
 
 export interface LocalTableRepositoryInterface {
-    save(rolePosition: TableEntity): string;
-    getGameTable(): string;
-    resetGameTable(): void;
+  save(rolePosition: TableEntity): string;
+  getGameTable(): string;
+  resetGameTable(): void;
 }

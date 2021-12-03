@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-import { ReadProjectFilenameInterface } from "./read-project-filenames.interface";
-import path from "path";
-import read from "fs-readdir-recursive";
-import config from "../config.json";
+import { ReadProjectFilenameInterface } from './read-project-filenames.interface';
+import path from 'path';
+import read from 'fs-readdir-recursive';
+import config from '../config.json';
 
 export class ReadContentFilename implements ReadProjectFilenameInterface {
-    getProjectFilenames(rootFolder: string): string[] {
-        const absoluteDirectory = path.resolve(rootFolder);
-        return read(absoluteDirectory, (filter) => {
-            const excludeFilePattern:string[] = config.excludeFilePattern;
+  getProjectFilenames(rootFolder: string): string[] {
+    const absoluteDirectory = path.resolve(rootFolder);
+    return read(absoluteDirectory, filter => {
+      const excludeFilePattern: string[] = config.excludeFilePattern;
 
-            let containsFilePath = false;
-            excludeFilePattern.forEach(item => {
-                if(filter.includes(item)) {
-                    containsFilePath = true;
-                }
-            })
+      let containsFilePath = false;
+      excludeFilePattern.forEach(item => {
+        if (filter.includes(item)) {
+          containsFilePath = true;
+        }
+      });
 
-            return !config.excludeFromSearch.includes(filter) && !containsFilePath ;
-        });
-    }
+      return !config.excludeFromSearch.includes(filter) && !containsFilePath;
+    });
+  }
 }

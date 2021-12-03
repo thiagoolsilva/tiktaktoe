@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -40,10 +41,9 @@ test('RealPlayRoundValidation: It should be possible to play round on provided p
 test('RealPlayRoundValidation: It should not be possible to play round on provided position.', () => {
   const realPlayRoundValidation = new PlayRoundValidation();
 
-  expect(() => realPlayRoundValidation
-    .checkIfPositionIsAlreadyFilledOrThrow(createFakeTikTakToeData, {
-      player: Player.firstPlayer,
-      xPosition: 1,
-      yPosition: 1,
-    })).toThrow(PositionAlreadyUsedException);
+  expect(() => realPlayRoundValidation.checkIfPositionIsAlreadyFilledOrThrow(createFakeTikTakToeData, {
+    player: Player.firstPlayer,
+    xPosition: 1,
+    yPosition: 1,
+  })).toThrow(PositionAlreadyUsedException);
 });

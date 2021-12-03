@@ -14,14 +14,13 @@
  * limitations under the License.
  */
 
-import { ReadFileContentInterface } from "./read-file-content.interface";
-import fs from "fs";
+import { ReadFileContentInterface } from './read-file-content.interface';
+import fs from 'fs';
 
 export class ReadFileContent implements ReadFileContentInterface {
-    public async readAsyncContentFile(path: string): Promise<string> {
-        return await fs.readFileSync(path, {
-            encoding: "utf-8"
-        });
-    }
-
+  public async readAsyncContentFile(path: string): Promise<string> {
+    return await fs.readFileSync(path, {
+      encoding: 'utf-8',
+    });
+  }
 }

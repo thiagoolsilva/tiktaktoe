@@ -19,7 +19,8 @@
     "projects:test": "./node_modules/.bin/lerna run test --parallel",
     "projects:clean": "./node_modules/.bin/lerna run clean --parallel",
     "projects:lint:fix": "./node_modules/.bin/lerna run lint:fix --parallel",
-    "projects:lint": "./node_modules/.bin/lerna run lint --parallel"
+    "projects:lint": "./node_modules/.bin/lerna run lint --parallel",
+    "projects:audit": "yarn audit"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "webpack-cli": "4.9.1"
   },
   "resolutions": {
-    "ansi-regex": "^5.0.1"
+    "ansi-regex": "^5.0.1",
+    "json-schema": "0.4.0"
   }
 }

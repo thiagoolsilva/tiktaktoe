@@ -21,7 +21,7 @@ import { PlayerWinnerCli } from '../../use-cases/get-winner/business-object/play
 import { GetWinnerAdapterInterface } from './get-winner-adapter.interface';
 
 export class GetWinnerAdapter implements GetWinnerAdapterInterface {
-  public constructor(private gamePlay: GameplayInterface) { }
+  public constructor(private gamePlay: GameplayInterface) {}
 
   public getWinner(): PlayerWinnerCli | undefined {
     let winner: PlayerWinnerCli | undefined;

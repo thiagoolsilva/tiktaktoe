@@ -18,5 +18,5 @@ import { TableEntity } from '../../../../data/table-repository/persistent-object
 import { TikTakToeTable } from '../business-object/tiktaktoe-table';
 
 export interface PlayGameParserInterface {
-    showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity;
+  showTableBOToEntity(tikTakToeTable: TikTakToeTable): TableEntity;
 }

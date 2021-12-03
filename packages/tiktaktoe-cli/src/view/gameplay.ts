@@ -24,26 +24,31 @@ import { PlayPositions } from '../cross-cutting/types/constants';
 export class GamePlayCli {
   private currentPlayer: PlayerCli = PlayerCli.firstPlayer;
 
-  public constructor(
-    private readonly gameplayParams: GameplayParams,
-  ) {
+  public constructor(private readonly gameplayParams: GameplayParams) {
     this.gameplayParams.startGameUCInterface.execute();
   }
 
   public main(): void {
     const matrixSize = 9;
     const invalidChooseOptionIndex = -1;
-    const playRoleOptions = [...Array(matrixSize).keys()].map((value) => value + 1)
+    const playRoleOptions = [...Array(matrixSize).keys()]
+      .map((value) => value + 1)
       .map((value) => value.toString());
     const gameplayLifeCycle = true;
     try {
       while (gameplayLifeCycle) {
         const valueInPosition = this.currentPlayer === PlayerCli.firstPlayer
-          ? PlayPositions.POSITION_2 : PlayPositions.POSITION_1;
+          ? PlayPositions.POSITION_2
+          : PlayPositions.POSITION_1;
         const currentGameStatus = this.gameplayParams.statusGameUCInterface.getCurrentGameStatus();
-        readlineSync.keyInPause(`Hi [${this.currentPlayer}]. Your key is [${valueInPosition}] \n${currentGameStatus}\n`);
+        readlineSync.keyInPause(
+          `Hi [${this.currentPlayer}]. Your key is [${valueInPosition}] \n${currentGameStatus}\n`,
+        );
 
-        const playChooseIndex = readlineSync.keyInSelect(playRoleOptions, 'Please choose one option.');
+        const playChooseIndex = readlineSync.keyInSelect(
+          playRoleOptions,
+          'Please choose one option.',
+        );
         if (Number(playChooseIndex) !== invalidChooseOptionIndex) {
           const userOption = Number(playRoleOptions[playChooseIndex]);
 
@@ -60,7 +65,8 @@ export class GamePlayCli {
           }
 
           this.currentPlayer = this.currentPlayer === PlayerCli.firstPlayer
-            ? PlayerCli.secondPlayer : PlayerCli.firstPlayer;
+            ? PlayerCli.secondPlayer
+            : PlayerCli.firstPlayer;
         }
       }
     } catch (error: any) {

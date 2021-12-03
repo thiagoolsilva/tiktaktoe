@@ -1,4 +1,5 @@
 /* eslint-disable no-empty-function */
+/* eslint-disable max-len */
 /*
  * Copyright (c) 2021  Thiago Lopes da Silva
  *
@@ -20,11 +21,10 @@ import { PlayerCli } from '../../business-object/player-cli';
 import { GamePlayInterfaceAdapter } from './game-play-adapter.interface';
 
 export class GamePlayAdapter implements GamePlayInterfaceAdapter {
-  public constructor(private gamePlay: GameplayInterface) { }
+  public constructor(private gamePlay: GameplayInterface) {}
 
   public play(play: number, playerCli: PlayerCli): void {
-    const playerCore = playerCli === PlayerCli.firstPlayer
-      ? Player.firstPlayer : Player.secondPlayer;
+    const playerCore = playerCli === PlayerCli.firstPlayer ? Player.firstPlayer : Player.secondPlayer;
     const nextPlay: TikTakToePlay = {
       player: playerCore,
       xPosition: 0,

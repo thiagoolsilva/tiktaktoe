@@ -19,8 +19,10 @@ import { ResetGameAdapterInterface } from '../../adapter/reset-game-adapter/rese
 import { ResetGameUCInterface } from './reset-game-uc.interface';
 
 export class ResetGameUC implements ResetGameUCInterface {
-  public constructor(private readonly resetGameAdapter: ResetGameAdapterInterface,
-        private readonly tableRepository: TableRepositoryInterface) { }
+  public constructor(
+    private readonly resetGameAdapter: ResetGameAdapterInterface,
+    private readonly tableRepository: TableRepositoryInterface,
+  ) {}
 
   public resetGame(): void {
     this.resetGameAdapter.resetGame();

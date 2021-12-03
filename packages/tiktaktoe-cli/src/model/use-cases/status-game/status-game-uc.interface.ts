@@ -15,5 +15,5 @@
  */
 
 export interface StatusGameUCInterface {
-    getCurrentGameStatus(): string;
+  getCurrentGameStatus(): string;
 }

@@ -22,8 +22,8 @@ const copyrightPluggin = webpack.BannerPlugin;
 
 module.exports = {
   entry: {
-    "library": './tiktaktoe/src/index.ts',
-    "library-cli": './tiktaktoe-cli/src/index.ts',
+    library: './tiktaktoe/src/index.ts',
+    'library-cli': './tiktaktoe-cli/src/index.ts',
   },
   target: 'node',
   optimization: { minimize: false },
@@ -41,7 +41,7 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
-          }
+          },
         ],
       },
     ],
@@ -50,7 +50,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       tsyringe: require.resolve('tsyringe/dist/esm2015/index.js'),
-  },
+    },
   },
   devtool: 'source-map',
   plugins: [

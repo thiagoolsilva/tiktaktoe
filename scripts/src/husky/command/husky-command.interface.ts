@@ -15,5 +15,5 @@
  */
 
 export interface HuskyCommand {
-    configure(): string;
+  configure(): string;
 }

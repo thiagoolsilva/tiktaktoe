@@ -17,5 +17,5 @@
 import { PlayerCli } from '../../business-object/player-cli';
 
 export interface GamePlayInterfaceAdapter {
-    play(play: number, player: PlayerCli): void
+  play(play: number, player: PlayerCli): void;
 }

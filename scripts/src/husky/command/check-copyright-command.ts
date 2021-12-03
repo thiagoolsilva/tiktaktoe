@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-import { HuskyCommand } from "./husky-command.interface";
+import { HuskyCommand } from './husky-command.interface';
 
 export class CheckCopyrightCommand implements HuskyCommand {
-
-    configure(): string {
-        return "./node_modules/.bin/husky add .husky/pre-commit 'npx ts-node scripts/src/check-copyright/index.ts'";
-    }
-
+  configure(): string {
+    return "./node_modules/.bin/husky add .husky/pre-commit 'npx ts-node scripts/src/check-copyright/index.ts'";
+  }
 }

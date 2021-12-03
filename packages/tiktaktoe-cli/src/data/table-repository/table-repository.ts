@@ -16,10 +16,13 @@
  */
 
 import { TableEntity } from './persistent-object/table-entity';
-import { LocalTableRepositoryInterface, TableRepositoryInterface } from './table-repository.interface';
+import {
+  LocalTableRepositoryInterface,
+  TableRepositoryInterface,
+} from './table-repository.interface';
 
 export class TableRepository implements TableRepositoryInterface {
-  public constructor(private readonly localSource: LocalTableRepositoryInterface) { }
+  public constructor(private readonly localSource: LocalTableRepositoryInterface) {}
 
   public save(rolePosition: TableEntity): string {
     return this.localSource.save(rolePosition);

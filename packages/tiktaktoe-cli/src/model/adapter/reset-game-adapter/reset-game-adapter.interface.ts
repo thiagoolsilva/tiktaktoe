@@ -15,5 +15,5 @@
  */
 
 export interface ResetGameAdapterInterface {
-    resetGame(): void;
+  resetGame(): void;
 }

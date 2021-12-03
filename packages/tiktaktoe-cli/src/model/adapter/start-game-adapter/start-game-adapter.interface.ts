@@ -15,5 +15,5 @@
  */
 
 export interface StartGameAdapterInterface {
-    startGame(): void;
+  startGame(): void;
 }

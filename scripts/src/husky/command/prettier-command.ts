@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { HuskyCommand } from "./husky-command.interface";
+import { HuskyCommand } from './husky-command.interface';
 
 export class PrettierCommand implements HuskyCommand {
-    configure(): string {
-        return "./node_modules/.bin/husky add .husky/pre-push 'npx pretty-quick --staged'";
-    }
+  configure(): string {
+    return "./node_modules/.bin/husky add .husky/pre-push 'npx pretty-quick --staged'";
+  }
 }

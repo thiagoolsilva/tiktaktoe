@@ -17,5 +17,5 @@
 import { PlayerWinnerCli } from '../../use-cases/get-winner/business-object/player-winner-cli';
 
 export interface GetWinnerAdapterInterface {
-    getWinner(): PlayerWinnerCli | undefined;
+  getWinner(): PlayerWinnerCli | undefined;
 }

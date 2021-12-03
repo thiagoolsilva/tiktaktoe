@@ -15,5 +15,5 @@
  */
 
 export interface StartGameUCInterface {
-    execute(): void;
+  execute(): void;
 }

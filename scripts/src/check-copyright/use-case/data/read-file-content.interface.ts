@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 export interface ReadFileContentInterface {
-    readAsyncContentFile(path: string): Promise<string>;
+  readAsyncContentFile(path: string): Promise<string>;
 }
