@@ -1,7 +1,7 @@
 {
   "name": "@tiktaktoe/ui",
   "private": true,
-  "version": "1.0.1-beta.1",
+  "version": "1.0.2",
   "description": "TikTakToe-CLI",
   "author": "Thiago Lopes da Silva <<thiagoolsilva@gmail.com>>",
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe/tree/main/packages/tiktaktoe-cli#readme",
@@ -29,7 +29,7 @@
     "url": "https://github.com/thiagoolsilva/tiktaktoe/issues"
   },
   "dependencies": {
-    "@tiktaktoe/core": "^1.0.1-beta.1",
+    "@tiktaktoe/core": "^1.0.2",
     "chalk": "4.1.2",
     "readline-sync": "1.4.10",
     "table": "6.7.2"
