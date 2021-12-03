@@ -24,12 +24,10 @@ import {
 import { GamePlayCli } from './view/gameplay';
 
 // TBD: Use Dependency injection
-new GamePlayCli(
-  {
-    playGameUCInterface: createPlayGameUCFactory(),
-    resetGameUCInterface: createResetGameUCFactory(),
-    startGameUCInterface: createStartGameUCFactory(),
-    statusGameUCInterface: createStatusGameUCFactory(),
-    getWinnerUCInterface: createWinnerGameUCFactory(),
-  },
-).main();
+new GamePlayCli({
+  playGameUCInterface: createPlayGameUCFactory(),
+  resetGameUCInterface: createResetGameUCFactory(),
+  startGameUCInterface: createStartGameUCFactory(),
+  statusGameUCInterface: createStatusGameUCFactory(),
+  getWinnerUCInterface: createWinnerGameUCFactory(),
+}).main();

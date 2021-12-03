@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-import { HuskyCommand } from "./husky-command.interface";
+import { HuskyCommand } from './husky-command.interface';
 
 export class CheckEslintCommand implements HuskyCommand {
-    public configure(): string {
-        return "./node_modules/.bin/husky add .husky/pre-commit 'yarn projects:lint:fix'";
-    }
-    
+  public configure(): string {
+    return "./node_modules/.bin/husky add .husky/pre-commit 'yarn projects:lint:fix'";
+  }
 }

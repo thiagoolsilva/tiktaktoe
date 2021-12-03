@@ -19,8 +19,10 @@ import { StartGameAdapterInterface } from '../../adapter/start-game-adapter/star
 import { StartGameUCInterface } from './start-game-uc.interface';
 
 export class StartGameUC implements StartGameUCInterface {
-  public constructor(private readonly startGameAdapter: StartGameAdapterInterface,
-    private readonly tableRepository: TableRepositoryInterface) { }
+  public constructor(
+    private readonly startGameAdapter: StartGameAdapterInterface,
+    private readonly tableRepository: TableRepositoryInterface,
+  ) {}
 
   public execute(): void {
     this.startGameAdapter.startGame();

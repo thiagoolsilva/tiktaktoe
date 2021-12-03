@@ -19,7 +19,7 @@ import { GameplayInterface } from '@tiktaktoe/core';
 import { ResetGameAdapterInterface } from './reset-game-adapter.interface';
 
 export class ResetGameAdapter implements ResetGameAdapterInterface {
-  public constructor(private gamePlay: GameplayInterface) { }
+  public constructor(private gamePlay: GameplayInterface) {}
 
   public resetGame(): void {
     this.gamePlay.resetGame();

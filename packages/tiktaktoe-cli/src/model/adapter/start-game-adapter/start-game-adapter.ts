@@ -19,7 +19,7 @@ import { GameplayInterface } from '@tiktaktoe/core';
 import { StartGameAdapterInterface } from './start-game-adapter.interface';
 
 export class StartGameAdapter implements StartGameAdapterInterface {
-  public constructor(private gamePlay: GameplayInterface) { }
+  public constructor(private gamePlay: GameplayInterface) {}
 
   public startGame(): void {
     this.gamePlay.startGame();

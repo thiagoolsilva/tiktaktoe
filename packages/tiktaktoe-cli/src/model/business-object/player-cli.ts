@@ -17,6 +17,6 @@
  */
 
 export enum PlayerCli {
-    firstPlayer = 'firstPlayer',
-    secondPlayer = 'secondPlayer'
+  firstPlayer = 'firstPlayer',
+  secondPlayer = 'secondPlayer',
 }

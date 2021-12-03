@@ -23,7 +23,7 @@ import { BaseUseCaseInterface } from '../../base-uc.interface';
 
 @injectable()
 export class CheckVerticalMatrixWinner implements BaseUseCaseInterface<TikTakToeWinner> {
-  public constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) { }
+  public constructor(@inject(delay(() => Log)) private readonly logWrapper: Logging) {}
 
   public execute(data: number[][]): TikTakToeWinner {
     this.logWrapper.log('--------->Executing CheckVerticalMatrixWinner<----------');

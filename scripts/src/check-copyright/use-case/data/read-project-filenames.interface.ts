@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 export interface ReadProjectFilenameInterface {
-    getProjectFilenames(rootFolder:string): string[]
+  getProjectFilenames(rootFolder: string): string[];
 }

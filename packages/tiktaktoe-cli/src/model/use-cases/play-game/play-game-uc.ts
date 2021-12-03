@@ -25,7 +25,7 @@ export class PlayGameUC implements PlayGameUCInterface {
     private readonly playRoleAdapter: GamePlayInterfaceAdapter,
     private readonly tableRepository: TableRepositoryInterface,
     private readonly parser: PlayGameParserInterface,
-  ) { }
+  ) {}
 
   public execute(tableRole: TikTakToeTable): string {
     const { position, playerCli } = tableRole;

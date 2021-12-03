@@ -19,11 +19,9 @@ import { TikTakToeWinner } from '../../../../../src/model';
 import { CheckHorizontalMatrixWinner } from '../../../../../src/model/use-cases/matrix/check-horizontal-matrix/check-horizontal-matrix-winner-uc';
 
 const createRealObject = (data: number[][]): TikTakToeWinner => {
-  const realObject = new CheckHorizontalMatrixWinner(
-    {
-      log: jest.fn(),
-    },
-  );
+  const realObject = new CheckHorizontalMatrixWinner({
+    log: jest.fn(),
+  });
 
   return realObject.execute(data);
 };
@@ -83,9 +81,11 @@ test('Horizontal: Second player should win the game on Third row.', () => {
   expect(horizontalResult.player).toBe(Player.secondPlayer);
 });
 test('Horizontal: No one should win the game when exists two secondPlayed rolled in first row.', () => {
-  const horizontalData = [[Player.firstPlayer, Player.firstPlayer, 0],
+  const horizontalData = [
+    [Player.firstPlayer, Player.firstPlayer, 0],
     Array(3).fill(Player.notPlayed),
-    Array(3).fill(Player.notPlayed)];
+    Array(3).fill(Player.notPlayed),
+  ];
 
   const horizontalResult = createRealObject(horizontalData);
   expect(horizontalResult.player).toBe(undefined);

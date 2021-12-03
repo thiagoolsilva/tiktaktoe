@@ -15,5 +15,5 @@
  */
 
 export interface ResetGameUCInterface {
-    resetGame(): void;
+  resetGame(): void;
 }

@@ -20,7 +20,7 @@ import { PlayerWinnerCli } from './business-object/player-winner-cli';
 import { GetWinnerUCInterface } from './get-winner-uc.interface';
 
 export class GetWinnerUC implements GetWinnerUCInterface {
-  public constructor(private readonly getWinnerAdapterInterface: GetWinnerAdapterInterface) { }
+  public constructor(private readonly getWinnerAdapterInterface: GetWinnerAdapterInterface) {}
 
   public getWinner(): PlayerWinnerCli | undefined {
     return this.getWinnerAdapterInterface.getWinner();

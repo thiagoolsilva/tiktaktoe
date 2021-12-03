@@ -1,3 +1,6 @@
+# Batect
+.batect/caches
+
 # Logs
 logs
 *.log

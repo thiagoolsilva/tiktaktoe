@@ -83,10 +83,7 @@ export function createResetGameUCFactory(): ResetGameUCInterface {
   const tableRepository = CoreGamePlay.getInstance().getTableRepository();
 
   const resetGameAdapter = new ResetGameAdapter(coreGameplay);
-  const resetGameUC: ResetGameUCInterface = new ResetGameUC(
-    resetGameAdapter,
-    tableRepository,
-  );
+  const resetGameUC: ResetGameUCInterface = new ResetGameUC(resetGameAdapter, tableRepository);
 
   return resetGameUC;
 }
@@ -96,10 +93,7 @@ export function createStartGameUCFactory(): StartGameUCInterface {
   const tableRepository = CoreGamePlay.getInstance().getTableRepository();
 
   const startGameAdapter = new StartGameAdapter(coreGameplay);
-  const startGameUC: StartGameUCInterface = new StartGameUC(
-    startGameAdapter,
-    tableRepository,
-  );
+  const startGameUC: StartGameUCInterface = new StartGameUC(startGameAdapter, tableRepository);
 
   return startGameUC;
 }

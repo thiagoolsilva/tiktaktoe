@@ -14,25 +14,22 @@
  * limitations under the License.
  */
 
-import { exec } from "shelljs";
-import { CheckCopyrightCommand } from "./command/check-copyright-command";
-import { CheckEslintCommand } from "./command/check-eslint-command";
-import { HuskyCommand } from "./command/husky-command.interface";
-import { PrettierCommand } from "./command/prettier-command";
+import { exec } from 'shelljs';
+import { CheckCopyrightCommand } from './command/check-copyright-command';
+import { CheckEslintCommand } from './command/check-eslint-command';
+import { HuskyCommand } from './command/husky-command.interface';
+import { PrettierCommand } from './command/prettier-command';
 
 export class Husky {
+  public constructor(private readonly commands: HuskyCommand[]) {}
 
-    public constructor(
-        private readonly commands: HuskyCommand[]
-    ) { }
-
-    public main(): void {
-        this.commands.forEach(item => exec(item.configure()));
-    }
+  public main(): void {
+    this.commands.forEach(item => exec(item.configure()));
+  }
 }
 
 void new Husky([
-    new CheckEslintCommand(),
-    new PrettierCommand(),
-    new CheckCopyrightCommand()]
-).main();
+  new CheckEslintCommand(),
+  new PrettierCommand(),
+  new CheckCopyrightCommand(),
+]).main();

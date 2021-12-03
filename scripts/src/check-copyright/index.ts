@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-import { CheckCopyrightUseCase } from "./use-case/check-copyright-uc";
-import { ReadFileContent } from "./use-case/data/read-file-content";
-import { ReadFileContentInterface } from "./use-case/data/read-file-content.interface";
-import { ReadContentFilename as ReadProjectFilename } from "./use-case/data/read-project-filenames";
-import { ReadProjectFilenameInterface } from "./use-case/data/read-project-filenames.interface";
+import { CheckCopyrightUseCase } from './use-case/check-copyright-uc';
+import { ReadFileContent } from './use-case/data/read-file-content';
+import { ReadFileContentInterface } from './use-case/data/read-file-content.interface';
+import { ReadContentFilename as ReadProjectFilename } from './use-case/data/read-project-filenames';
+import { ReadProjectFilenameInterface } from './use-case/data/read-project-filenames.interface';
 
 export class Index {
-
-    async main(): Promise<void> {
-        const readFileContentInterface: ReadFileContentInterface = new ReadFileContent();
-        const readProjectFilenameInterface: ReadProjectFilenameInterface = new ReadProjectFilename();
-        const checkCopyrightUseCase = new CheckCopyrightUseCase(readFileContentInterface, readProjectFilenameInterface);
-        const rootProjectFolder = ".";
-        await checkCopyrightUseCase.execute(rootProjectFolder);
-    }
+  async main(): Promise<void> {
+    const readFileContentInterface: ReadFileContentInterface = new ReadFileContent();
+    const readProjectFilenameInterface: ReadProjectFilenameInterface = new ReadProjectFilename();
+    const checkCopyrightUseCase = new CheckCopyrightUseCase(
+      readFileContentInterface,
+      readProjectFilenameInterface,
+    );
+    const rootProjectFolder = '.';
+    await checkCopyrightUseCase.execute(rootProjectFolder);
+  }
 }
-
 
 void new Index().main();
