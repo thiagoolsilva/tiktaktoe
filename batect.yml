@@ -6,6 +6,15 @@ containers:
       - local: <{batect.project_directory}
         container: /code
         options: cached
+      - local: ~/.ssh/
+        container: /home/container-user/.ssh/
+        options: cached
+      - local: ~/.ssh/
+        container: /home/container-user/.ssh/
+        options: cached
+      - local: ~/.gitconfig
+        container: /home/container-user/.gitconfig
+        options: cached
       - type: cache
         name: node_modules
         container: /code/node_modules
@@ -38,6 +47,12 @@ tasks:
     run:
       container: node-build-env
       command: bash -c "yarn remove-bundle"
+  version:
+    group: Build
+    description: Create a new version
+    run:
+      container: node-build-env
+      command: yarn exec lerna version  
 
   #   Test
   unit-testing:

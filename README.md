@@ -111,8 +111,10 @@ Build:
 - build: Install all dependencies into docker volume
 - clean: Clean project builds
 - install: Build code
+- version: Create a new version
 
 Quality:
+- audit: Check library vulnerability
 - format-code: Format code
 - lint: Run lint
 - lint-fix: Run lint fix
