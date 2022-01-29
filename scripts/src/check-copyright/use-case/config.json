@@ -21,6 +21,7 @@
     "lerna.json",
     ".eslintrc.json",
     "batect",
+    "batect.cmd",
     ".batect",
     "batect.yml"
   ]
