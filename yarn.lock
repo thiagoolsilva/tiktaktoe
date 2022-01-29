@@ -2693,11 +2693,6 @@ commander@^7.0.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-commitlint-plugin-function-rules@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-1.6.0.tgz#52472998734a9eb7908005dad7eb614c2876821e"
-  integrity sha512-k8oS/tjBlTOdYGgYs7bmySktdPzBbj/B5xMvk4Z7py+rTsqvn16sEDtXhQLPVlqGjeURuFdGBnasjxrvIho6FQ==
-
 compare-func@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/compare-func/-/compare-func-2.0.0.tgz#fb65e75edbddfd2e568554e8b5b05fff7a51fcb3"
