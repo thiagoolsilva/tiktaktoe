@@ -9,9 +9,6 @@ containers:
       - local: ~/.ssh/
         container: /home/container-user/.ssh/
         options: cached
-      - local: ~/.ssh/
-        container: /home/container-user/.ssh/
-        options: cached
       - local: ~/.gitconfig
         container: /home/container-user/.gitconfig
         options: cached
@@ -40,7 +37,7 @@ tasks:
     description: Build code
     run:
       container: node-build-env
-      command: bash -c "npm install && yarn projects:bootstrap"
+      command: bash -c "yarn install && yarn projects:bootstrap"
   clean:
     group: Build
     description: Clean project builds
