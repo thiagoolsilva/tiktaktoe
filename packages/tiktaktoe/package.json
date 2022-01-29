@@ -1,7 +1,7 @@
 {
   "name": "@tiktaktoe/core",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "> TODO: description",
   "author": "Thiago Lopes da Silva <thiagoolsilva@gmail.com>",
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe/tree/main/packages/tiktaktoe#readme",
