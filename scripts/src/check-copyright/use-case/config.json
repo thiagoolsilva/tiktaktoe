@@ -19,6 +19,9 @@
     "README.md",
     "yarn.lock",
     "lerna.json",
-    ".eslintrc.json"
+    ".eslintrc.json",
+    "batect",
+    ".batect",
+    "batect.yml"
   ]
 }

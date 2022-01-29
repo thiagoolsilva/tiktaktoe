@@ -15,6 +15,7 @@
  */
 
 import { exec } from 'shelljs';
+import { CheckCommitMsgCommand } from './check-commit-msg-command';
 import { CheckCopyrightCommand } from './command/check-copyright-command';
 import { CheckEslintCommand } from './command/check-eslint-command';
 import { HuskyCommand } from './command/husky-command.interface';
@@ -32,4 +33,5 @@ void new Husky([
   new CheckEslintCommand(),
   new PrettierCommand(),
   new CheckCopyrightCommand(),
+  new CheckCommitMsgCommand(),
 ]).main();
