@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/thiagoolsilva/tiktaktoe#readme",
   "devDependencies": {
+    "@commitlint/cli": "16.1.0",
+    "@commitlint/config-conventional": "16.0.0",
     "@types/fs-readdir-recursive": "1.0.0",
     "@types/jest": "27.0.1",
     "@types/shelljs": "0.8.9",
